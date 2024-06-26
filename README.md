@@ -1,1 +1,1 @@
-# TestCapitalCom_Playwright
+# TestCapitalCom_Playwright_Ts
