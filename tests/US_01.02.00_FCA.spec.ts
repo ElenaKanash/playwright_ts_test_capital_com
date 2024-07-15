@@ -34,7 +34,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
   test('TC_01.02!00_101_UnAuth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
     page,
   }) => {
-    test.beforeEach(async () => {});
+    
     const markets = new Markets(page);
     const signUp = new SignUp(page);
 
@@ -46,7 +46,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
   test('TC_01.02!00_101_Auth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
     page,
   }) => {
-    test.beforeEach(async () => {});
+   
     const markets = new Markets(page);    
 
     await markets.clickMarketsTradingBlockSignUpBtn();
