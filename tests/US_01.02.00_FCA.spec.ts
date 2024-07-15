@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-import Markets from '../pages/elements/markets';
-import SignUp from '../pages/elements/SignUp';
+
 import HomePage from '../pages/homePage';
-import Header from '../pages/header';
+import Header from '../pages/Header';
+import Markets from '../pages/elements/Markets';
+import SignUp from '../pages/elements/SignUp';
 
 
 const license = 'FCA';
