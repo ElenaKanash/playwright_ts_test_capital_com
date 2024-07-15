@@ -1,10 +1,12 @@
 import { test, expect } from '@playwright/test';
-import HomePage from '../pages/HomePage';
-import Header from '../pages/header';
+
 import Markets from '../pages/elements/markets';
 import SignUp from '../pages/elements/SignUp';
+import HomePage from '../pages/homePage';
+import Header from '../pages/header';
 
-const license = "FCA";
+
+const license = 'FCA';
 
 test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} license`, () => {
   test.beforeEach(async ({ page }) => {
@@ -21,7 +23,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     page,
   }) => {
     const markets = new Markets(page);
-    const signUp = new SignUp(page);    
+    const signUp = new  SignUp(page);
 
     await markets.clickMarketsTradingBlockSignUpBtn();
     await expect(signUp.getSignUpForm).toBeVisible();
@@ -30,9 +32,22 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
 
   test('TC_01.02!00_101_UnAuth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
     page,
-  }) => {});
+  }) => {
+    test.beforeEach(async () => {});
+    const markets = new Markets(page);
+    const signUp = new SignUp(page);
+
+    await markets.clickMarketsTradingBlockSignUpBtn();
+    await expect(signUp.getSignUpForm).toBeVisible();
+    await signUp.verifySignUpForm();
+  });
 
   test('TC_01.02!00_101_Auth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
     page,
-  }) => {});
+  }) => {
+    test.beforeEach(async () => {});
+    const markets = new Markets(page);    
+
+    await markets.clickMarketsTradingBlockSignUpBtn();
+  });
 });
