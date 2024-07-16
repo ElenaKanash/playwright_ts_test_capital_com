@@ -15,10 +15,10 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     await homePage.openMainPageFCA();
     await homePage.clickAcceptAllCookiesBtn();
     await header.hoverMarketsMenu();
-    await header.clickMarketsSharesSubMenu();
+    await header.clickMarketsSharesMenuItem();
   });
 
-  test.describe('US_01.02!00_UnReg,', () => {
+  test.describe('US_01.02!00_UnReg | Menu [Markets] > Menu item [Shares]', () => {
     test.beforeEach(async ({ page }) => {
       // Действия для незарегистрированного пользователя
     });
@@ -35,7 +35,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     });
   });
 
-  test.describe('US_01.02!00_UnAuth,', () => {
+  test.describe('US_01.02!00_UnAuth | Menu [Markets] > Menu item [Shares],', () => {
     test.beforeEach(async ({ page }) => {
       // Действия для неавторизованного пользователя
     });
@@ -52,7 +52,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     });
   });
 
-  test.describe('US_01.02!00_Auth,', () => {
+  test.describe('US_01.02!00_Auth | Menu [Markets] > Menu item [Shares],', () => {
     test.beforeEach(async ({ page }) => {
       // Действия для авторизованного пользователя
     });
