@@ -9,7 +9,7 @@ class Header {
     //this.getMarketsMenu = page.locator('header a[href="/en-gb/markets"]');  
     this.getMarketsMenu = page.locator('span').filter({ hasText: 'Markets' }).getByRole('link');
     //this.getMarketsSharesSubMenu = page.locator('header a[href="/en-gb/markets/shares"]');
-    this.getMarketsSharesSubMenu = page.locator('header').getByRole('link', { name: 'Shares' });
+    this.getMarketsSharesMenuItem = page.locator('header').getByRole('link', { name: 'Shares' });
   }
 
   //methods
@@ -17,8 +17,8 @@ class Header {
     await this.getMarketsMenu.hover();
   }
 
-  async clickMarketsSharesSubMenu() {
-    await this.getMarketsSharesSubMenu.click();
+  async clickMarketsSharesMenuItem() {
+    await this.getMarketsSharesMenuItem.click();
   }
 }
 export default Header;
