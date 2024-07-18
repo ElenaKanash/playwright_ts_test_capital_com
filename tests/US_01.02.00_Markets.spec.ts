@@ -9,6 +9,7 @@ import Login from '../pages/elements/Login';
 const license = 'FCA';
 
 test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} license`, () => {
+  test.slow();
   test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);
 
