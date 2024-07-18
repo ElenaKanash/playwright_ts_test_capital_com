@@ -9,8 +9,8 @@ class Login {
     this.page = page;
     //locators
     /*/ /Header login locators
-    this.getHeaderLoginBtn = page.locator('header [data-type="btn_header_login"]');    
-    this.getHeaderMyAccountBtn = page.locator('div [class*="accountBtn"] a[href="/trading/platform"]');  */
+    this.getHeaderLoginBtn = page.locator('header [data-type="btn_header_login"]');  */  
+    this.getHeaderMyAccountBtn = page.locator('header a[href="/trading/platform"]').last();  
 
     //Header login locators for English language
     this.getHeaderLoginBtn = page.getByRole('button', { name: 'Log In' });
@@ -64,8 +64,12 @@ class Login {
     await expect(this.page).toHaveURL(PLATFORM_URL.platformBaseUrl);
   }
 
-  async checkMyAccountButton() {
-    await expect(this.getHeaderMyAccountLink).toBeVisible();
+  async checkMyAccountButton() { 
+    await this.page.waitForLoadState('load'); 
+    await this.getHeaderMyAccountBtn.waitFor({state: 'visible'});
+    //await this.page.waitForSelector('div [class*="accountBtns_btnsPlace"] a[href="/trading/platform"]', { state: 'visible' });
+   // await this.page.waitForSelector('header a[href="/trading/platform"]:last-child', { state: 'visible' });
+    await expect(this.getHeaderMyAccountBtn).toBeVisible();
   }
 }
 export default Login;
