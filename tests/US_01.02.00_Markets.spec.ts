@@ -15,14 +15,20 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
 
     await homePage.openMainPageFCA();
     await homePage.clickAcceptAllCookiesBtn();
+
+    await header.hoverMarketsMenu();
+    await header.clickMarketsSharesMenuItem();
+
   });
 
   test.describe('US_01.02!00_UnReg | Menu [Markets] > Menu item [Shares]', () => {
     test.beforeEach(async ({ page }) => {
+
       const header = new Header(page);
 
       await header.hoverMarketsMenu();
       await header.clickMarketsSharesMenuItem();
+
     });
 
     test('TC_01.02!00_101_UnReg | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
@@ -37,6 +43,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     });
   });
 
+
   test.describe('US_01.02!00_UnAuth | Menu [Markets] > Menu item [Shares],', () => {
     test.beforeEach(async ({ page }) => {
       const login = new Login(page);
@@ -45,6 +52,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await login.unAutorizedUser();
       await header.hoverMarketsMenu();
       await header.clickMarketsSharesMenuItem();
+
     });
 
     test('TC_01.02!00_101_UnAuth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
@@ -59,6 +67,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     });
   });
 
+
   /* test.describe('US_01.02!00_Auth | Menu [Markets] > Menu item [Shares],', () => {
     test.beforeEach(async ({ page }) => {
       const login = new Login(page);
@@ -69,6 +78,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await header.clickMarketsSharesMenuItem();
 
 
+
     });
 
     test('TC_01.02!00_101_Auth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
@@ -76,7 +86,12 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     }) => {
       const markets = new Markets(page);
 
+      const login = new Login(page);
+
       await markets.clickMarketsTradingBlockSignUpBtn();
+      await expect(page).toHaveURL('https://capital.com/trading/platform/');
+      //await login.checkNavigationToPlatform();
+
     });
   }); */
 });

@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 
+
 import { FCA_URL, PLATFORM_URL } from '../../helpers/links';
+
 import { USER_DATA } from '../../helpers/testData';
 
 class Login {
@@ -9,6 +11,7 @@ class Login {
     this.page = page;
     //locators
     /*/ /Header login locators
+
     this.getHeaderLoginBtn = page.locator('header [data-type="btn_header_login"]');  */
     this.getHeaderMyAccountBtn = page
       .locator('header a[href="/trading/platform"]')
@@ -20,6 +23,7 @@ class Login {
       name: 'My account',
     });
 
+
     /*  //Login Form locators for all language
         this.getFormEmailField = page.locator('form #email');
     this.getFormPaswordField = page.locator('form #password');
@@ -30,9 +34,11 @@ class Login {
     this.getFormPaswordField = page.getByLabel('Password');
     this.getFormContinueBtn = page.getByRole('button', { name: 'Continue' });
 
+
     //Trading platform locators
     this.getPlatformAccountBtn = page.getByText('live', { exact: true });
     this.getPlatformLogoutBtn = page.getByRole('button', { name: 'Logout' });
+
   }
 
   //methods for English language
@@ -52,11 +58,13 @@ class Login {
     await this.fillPasswordField();
     await this.clickFormContinueBtn();
     await this.checkNavigationToPlatform();
+
     await this.clickPlatformAccountBtn();
     await this.clickPlatformLogoutBtn();
     await this.page.waitForNavigation();
     await this.openMainPageFCA();
     await this.checkHeaderLoginBtn();
+
 
   }
 
@@ -72,10 +80,12 @@ class Login {
   async clickFormContinueBtn() {
     await this.getFormContinueBtn.click();
   }
+
   async checkNavigationToPlatform() {
     await this.page.waitForNavigation();
     await expect(this.page).toHaveURL(PLATFORM_URL.platformBaseUrl);
   }
+
 
   async clickPlatformAccountBtn() {
     await this.getPlatformAccountBtn.click();
@@ -99,6 +109,7 @@ class Login {
     //await this.page.waitForSelector('div [class*="accountBtns_btnsPlace"] a[href="/trading/platform"]', { state: 'visible' });
     // await this.page.waitForSelector('header a[href="/trading/platform"]:last-child', { state: 'visible' });
     await expect(this.getHeaderMyAccountBtn).toBeVisible();
+
   }
 }
 export default Login;
