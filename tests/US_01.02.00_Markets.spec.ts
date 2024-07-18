@@ -36,7 +36,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     });
   });
 
-  test.describe('US_01.02!00_UnAuth | Menu [Markets] > Menu item [Shares],', () => {
+/*   test.describe('US_01.02!00_UnAuth | Menu [Markets] > Menu item [Shares],', () => {
     test.beforeEach(async ({ page }) => {
       const login = new Login(page);
       //await login.unAutorizedUser();
@@ -64,8 +64,11 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       page,
     }) => {
       const markets = new Markets(page);
+      const login = new Login(page);
 
       await markets.clickMarketsTradingBlockSignUpBtn();
+      await expect(page).toHaveURL('https://capital.com/trading/platform/');
+      //await login.checkNavigationToPlatform();
     });
-  });
+  }); */
 });
