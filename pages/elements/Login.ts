@@ -1,20 +1,17 @@
 import { test, expect } from '@playwright/test';
-
 import { FCA_URL, PLATFORM_URL } from '../../helpers/links';
-
 import { USER_DATA } from '../../helpers/testData';
+import TradingPlatform from './../Trading.platform';
 
 class Login {
   [x: string]: any;
   constructor(page) {
-    this.page = page;
+    this.page = page;    
     //locators
     /*/ /Header login locators
 
     this.getHeaderLoginBtn = page.locator('header [data-type="btn_header_login"]');  */
-    this.getHeaderMyAccountBtn = page
-      .locator('header a[href="/trading/platform"]')
-      .last();
+    this.getHeaderMyAccountBtn = page.locator('header a[href="/trading/platform"]').last();
 
     //Header login locators for English language
     this.getHeaderLoginBtn = page.getByRole('button', { name: 'Log In' });
@@ -97,10 +94,7 @@ class Login {
   }
 
   async checkMyAccountButton() {
-    await this.page.waitForLoadState('load');
-    await this.getHeaderMyAccountBtn.waitFor({ state: 'visible' });
-    //await this.page.waitForSelector('div [class*="accountBtns_btnsPlace"] a[href="/trading/platform"]', { state: 'visible' });
-    // await this.page.waitForSelector('header a[href="/trading/platform"]:last-child', { state: 'visible' });
+    await this.page.waitForLoadState('load');     
     await expect(this.getHeaderMyAccountBtn).toBeVisible();
   }
 }
