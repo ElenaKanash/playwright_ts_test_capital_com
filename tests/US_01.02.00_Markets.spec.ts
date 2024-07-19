@@ -2,9 +2,11 @@ import { test, expect } from '@playwright/test';
 
 import HomePage from '../pages/homePage';
 import Header from '../pages/Header';
-import Markets from '../pages/elements/Markets';
+import Markets from '../pages/Markets';
 import SignUp from '../pages/elements/SignUp';
 import Login from '../pages/elements/Login';
+import { PLATFORM_URL } from '../helpers/links';
+import TradingPlatform from '../pages/Trading.platform';
 
 const license = 'FCA';
 
@@ -58,7 +60,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     });
   });
 
-  /* test.describe('US_01.02!00_Auth | Menu [Markets] > Menu item [Shares],', () => {
+   test.describe('US_01.02!00_Auth | Menu [Markets] > Menu item [Shares],', () => {
     test.beforeEach(async ({ page }) => {
       const login = new Login(page);
       const header = new Header(page);
@@ -66,22 +68,20 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await login.autorizedUser();
       await header.hoverMarketsMenu();
       await header.clickMarketsSharesMenuItem();
-
-
-
     });
 
     test('TC_01.02!00_101_Auth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);
-
-      const login = new Login(page);
+      const markets = new Markets(page); 
+      const tradingPlatform = new TradingPlatform(page);     
 
       await markets.clickMarketsTradingBlockSignUpBtn();
-      await expect(page).toHaveURL('https://capital.com/trading/platform/');
-      //await login.checkNavigationToPlatform();
+
+      await tradingPlatform.verifyTradingPlatform();      
+      await expect(page).toHaveURL(PLATFORM_URL.platformBaseUrl);
+      
 
     });
-  }); */
+  }); 
 });
