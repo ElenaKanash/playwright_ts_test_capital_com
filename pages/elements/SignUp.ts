@@ -15,10 +15,15 @@ class SignUp {
   }
 
   //methods
-  async verifySignUpForm() {
+/*   async verifySignUpForm() {
+    await this.formIsOpened();
     await this.VerifySignUpHeading();
     await this.VerifySignUpLoginBtn();
     await this.clickSignUpFormCloseBtn();
+  } */
+
+  async formIsOpened() {
+    await expect(this.getSignUpForm).toBeVisible();
   }
 
   async VerifySignUpHeading() {
