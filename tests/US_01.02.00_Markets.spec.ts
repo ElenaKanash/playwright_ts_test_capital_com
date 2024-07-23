@@ -43,8 +43,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       const assertions = new Assertions(page, signUp);
 
       await markets.clickMarketsTradingBlockTryDemoBtn();      
-      await assertions.expectSignUpFormIsOpened();
-      
+      await assertions.expectSignUpFormIsOpened();      
     })
   });
 
@@ -63,10 +62,10 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     }) => {
       const markets = new Markets(page);
       const signUp = new SignUp(page);
+      const assertions = new Assertions(page, signUp);
 
       await markets.clickMarketsTradingBlockSignUpBtn();
-      await expect(signUp.getSignUpForm).toBeVisible();
-      await signUp.verifySignUpForm();
+      await assertions.expectSignUpFormIsOpened();    
     });
   });
 
