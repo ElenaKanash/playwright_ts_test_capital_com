@@ -9,7 +9,7 @@ class Assertions {
     this.signUp = signUp;
   }
 
-  async SignUpFormIsOpened() {   
+  async expectSignUpFormIsOpened() {   
     await this.signUp.formIsOpened();
     await this.signUp.VerifySignUpHeading();
     await this.signUp.VerifySignUpLoginBtn();

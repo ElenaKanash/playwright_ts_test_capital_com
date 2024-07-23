@@ -34,7 +34,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       const assertions = new Assertions(page, signUp);
 
       await markets.clickMarketsTradingBlockSignUpBtn();      
-      await assertions.SignUpFormIsOpened();
+      await assertions.expectSignUpFormIsOpened();
     });
 
     test('TC_01.02.00_102_UnReg | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async({page}) => {
@@ -43,7 +43,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       const assertions = new Assertions(page, signUp);
 
       await markets.clickMarketsTradingBlockTryDemoBtn();      
-      await assertions.SignUpFormIsOpened();
+      await assertions.expectSignUpFormIsOpened();
       
     })
   });
