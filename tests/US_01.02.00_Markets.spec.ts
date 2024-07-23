@@ -27,8 +27,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     });
 
     test('TC_01.02!00_101_UnReg | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
-      page,
-    }) => {
+      page}) => {
       const markets = new Markets(page);
       const signUp = new SignUp(page);
 
@@ -36,6 +35,15 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await expect(signUp.getSignUpForm).toBeVisible();
       await signUp.verifySignUpForm();
     });
+
+    test('TC_01.02.00_102_UnReg | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async({page}) => {
+      const markets = new Markets(page);
+      const signUp = new SignUp(page);
+
+      await markets.clickMarketsTradingBlockTryDemoBtn();
+      await expect(signUp.getSignUpForm).toBeVisible();
+      await signUp.verifySignUpForm();
+    })
   });
 
   test.describe('US_01.02!00_UnAuth | Menu [Markets] > Menu item [Shares],', () => {
