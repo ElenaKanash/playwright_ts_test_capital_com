@@ -15,22 +15,22 @@ class SignUp {
   }
 
   //methods
-/*   async verifySignUpForm() {
-    await this.formIsOpened();
-    await this.VerifySignUpHeading();
-    await this.VerifySignUpLoginBtn();
+  async verifySignUpForm() { 
+    await this.formIsOpened();   
+    await this.verifySignUpHeading();
+    await this.verifySignUpLoginBtn();
     await this.clickSignUpFormCloseBtn();
-  } */
+  } 
 
   async formIsOpened() {
     await expect(this.getSignUpForm).toBeVisible();
   }
 
-  async VerifySignUpHeading() {
+  async verifySignUpHeading() {
     await expect(this.getHeadingForm).toHaveText('Sign up');
   }
 
-  async VerifySignUpLoginBtn() {
+  async verifySignUpLoginBtn() {
     await expect(this.getSignUpLoginBtn).toHaveText('Login');
   }
 
