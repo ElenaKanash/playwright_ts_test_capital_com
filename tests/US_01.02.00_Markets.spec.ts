@@ -3,16 +3,18 @@ import { test, expect } from '@playwright/test';
 import HomePage from '../pages/homePage';
 import Header from '../pages/Header';
 import Markets from '../pages/Markets';
-import SignUp from '../pages/elements/SignUp';
 import Login from '../pages/elements/Login';
-import { PLATFORM_URL } from '../helpers/links';
-import TradingPlatform from '../pages/Trading.platform';
-import Assertions from '../pages/elements/Assertions';
+import {
+  expectTradingPlatform,
+  expectSignUpFormIsOpened,
+  expectLoginFormIsOpened,
+} from '../pages/elements/Assertions';
 
 const license = 'FCA';
+const language = 'EN';
 
-test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} license`, () => {  
-  test.beforeEach(async ({ page }) => {    
+test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} license, ${language} language`, () => {
+  test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);
 
     await homePage.openMainPageFCA();
@@ -28,23 +30,22 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     });
 
     test('TC_01.02!00_101_UnReg | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
-      page}) => {
+      page,
+    }) => {
       const markets = new Markets(page);
-      const signUp = new SignUp(page);
-      const assertions = new Assertions(page, signUp);
 
-      await markets.clickMarketsTradingBlockSignUpBtn();      
-      await assertions.expectSignUpFormIsOpened();
+      await markets.clickMarketsTradingBlockSignUpBtn();
+      await expectSignUpFormIsOpened(page);
     });
 
-    test('TC_01.02.00_102_UnReg | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async({page}) => {
-      const markets = new Markets(page);
-      const signUp = new SignUp(page);
-      const assertions = new Assertions(page, signUp);
+    test('TC_01.02.00_102_UnReg | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
+      page,
+    }) => {
+      const markets = new Markets(page);      
 
-      await markets.clickMarketsTradingBlockTryDemoBtn();      
-      await assertions.expectSignUpFormIsOpened();      
-    })
+      await markets.clickMarketsTradingBlockTryDemoBtn();
+      await expectLoginFormIsOpened(page);
+    });
   });
 
   test.describe('US_01.02!00_UnAuth | Menu [Markets] > Menu item [Shares],', () => {
@@ -60,16 +61,23 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     test('TC_01.02!00_101_UnAuth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);
-      const signUp = new SignUp(page);
-      const assertions = new Assertions(page, signUp);
+      const markets = new Markets(page);      
 
       await markets.clickMarketsTradingBlockSignUpBtn();
-      await assertions.expectSignUpFormIsOpened();    
+      await expectSignUpFormIsOpened(page);
+    });
+
+    test('TC_01.02.00_102_UnAuth | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
+      page,
+    }) => {
+      const markets = new Markets(page);      
+
+      await markets.clickMarketsTradingBlockTryDemoBtn();
+      await expectLoginFormIsOpened(page);
     });
   });
 
-   test.describe('US_01.02!00_Auth | Menu [Markets] > Menu item [Shares],', () => {
+  test.describe('US_01.02!00_Auth | Menu [Markets] > Menu item [Shares],', () => {
     test.beforeEach(async ({ page }) => {
       const login = new Login(page);
       const header = new Header(page);
@@ -82,15 +90,10 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     test('TC_01.02!00_101_Auth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page); 
-      const tradingPlatform = new TradingPlatform(page);     
-
-      await markets.clickMarketsTradingBlockSignUpBtn();
-
-      await tradingPlatform.verifyTradingPlatform();      
-      await expect(page).toHaveURL(PLATFORM_URL.platformBaseUrl);
+      const markets = new Markets(page);     
       
-
+      await markets.clickMarketsTradingBlockSignUpBtn();
+      await  expectTradingPlatform(page);
     });
-  }); 
+  });
 });

@@ -1,20 +1,23 @@
+import TradingPlatform from "../Trading.platform";
+import Login from "./Login";
 import SignUp from "./SignUp"
 
-class Assertions {
-  [x: string]: any;
-  page: any;
-
-  constructor(page: any, signUp: SignUp) {
-    this.page = page;
-    this.signUp = signUp;
-  }
-
-  async expectSignUpFormIsOpened() {   
-    await this.signUp.formIsOpened();
-    await this.signUp.VerifySignUpHeading();
-    await this.signUp.VerifySignUpLoginBtn();
-    await this.signUp.clickSignUpFormCloseBtn();
-  }
-
+const expectTradingPlatform = async (page: any) => {
+  const tradingPlatform = new TradingPlatform(page)
+  await tradingPlatform.verifyTradingPlatform();
 }
-export default Assertions
+
+const expectSignUpFormIsOpened = async (page: any) => { 
+  const signUp = new SignUp(page) ;
+  await signUp.verifySignUpForm();
+}
+const expectLoginFormIsOpened = async (page: any) => { 
+  const login = new Login(page) ;
+  await login.verifyLoginForm();
+}
+
+export { expectTradingPlatform , expectSignUpFormIsOpened, expectLoginFormIsOpened };
+
+
+
+

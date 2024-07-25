@@ -25,8 +25,13 @@ class Login {
     this.getFormContinueBtn = page.locator('button[type="submit"]'); */
 
     //Login Form locators for English language
+    this.getForm = page.locator('[class*="modal_modal"]');
+    this.getHeadingForm = page.locator('div [class*="modal"] [class*="heading_h3"]');
+    this.getFormSignUpBtn = page.locator('[class*="modal_modal"]').getByRole('button', { name: 'Sign up' });  
     this.getFormEmailField = page.getByLabel('Email address');
     this.getFormPaswordField = page.getByLabel('Password');
+    this.getFormForgotPaswordBtn = page.locator('[class*="modal_modal"]').getByRole('button', { name: 'Forgot password?' });
+    this.getFormLogMe7days = page.locator('label').filter({ hasText: 'Log me out after 7 days' });   
     this.getFormContinueBtn = page.getByRole('button', { name: 'Continue' });
 
     //Trading platform locators
@@ -58,6 +63,50 @@ class Login {
     await this.openMainPageFCA();
     await this.checkHeaderLoginBtn();
   }
+
+  async verifyLoginForm() { 
+    await this.formIsOpened();   
+    await this.verifyLoginHeading();
+    await this.verifyFormSignUpBtn();
+    await this.verifyEmailField();
+    await this.verifyPasswordField();
+    await this.verifyFormForgotPaswordBtn();
+    await this.verifyFormLodMe7days();
+    await this.clickFormCloseBtn();
+  } 
+
+  async formIsOpened() {
+    await expect(this.getForm).toBeVisible();
+  }
+
+  async verifyLoginHeading() {
+   // await expect(this.getHeadingForm).toHaveText('Login');
+     const headingText = await this.getHeadingForm.textContent();
+    if (headingText!== 'Login' && headingText === 'Sign up') {
+      throw new Error("Bug! Opened a 'Sign up' form  instead of a 'Login' form");
+    } 
+  }
+
+  async verifyFormSignUpBtn() {
+    await expect(this.getFormSignUpBtn).toHaveText('Sign up');
+  }
+
+  async verifyEmailField(){
+    await expect(this.getFormEmailField).toBeVisible();
+  }
+
+  async verifyFormForgotPaswordBtn(){
+    await expect(this.getFormForgotPaswordBtn).toBeVisible();
+  }
+
+  async verifyFormLodMe7days(){
+    await expect(this.getFormLogMe7days).toBeVisible();
+  }
+
+  async verifyFormContinueBtn(){
+    await expect(this.getFormContinueBtn).toBeVisible();
+  }
+
 
   async clickHeaderLoginBtn() {
     await this.getHeaderLoginBtn.click();
