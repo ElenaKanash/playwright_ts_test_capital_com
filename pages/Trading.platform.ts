@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { PLATFORM_URL } from '../helpers/links';
+import { TradingPlanformURL } from '../helpers/links';
 
 const tradingPlatformTitle = 'Trading Platform | Capital.com';
 
@@ -11,10 +11,18 @@ class TradingPlatform {
     this.getPlatformLogo = page.locator('topbar .logo');
   }
 
-  async verifyTradingPlatform() { 
-    await this.page.waitForLoadState('load');       
+  async verifyTradingPlatform() {
+    await this.page.waitForLoadState('load');
     await this.veryfyPlatformTitle();
     await this.verifyPlatformLogo();
+    await this.verifyTradingPlatformUrl();
+  }
+
+  async verifyTradingPlatformDemoMode() {
+    await this.page.waitForLoadState('load');
+    await this.veryfyPlatformTitle();
+    await this.verifyPlatformLogo();
+    await this.verifyTradingPlatformDemoUrl();
   }
 
   async verifyPlatformLogo() {
@@ -25,9 +33,23 @@ class TradingPlatform {
   }
 
   async verifyTradingPlatformUrl() {
-    await expect(this.page).toHaveURL(PLATFORM_URL.platformBaseUrl);
+    await expect(this.page).toHaveURL(
+      TradingPlanformURL.tradingPlatform_baseURL
+    );
+  }
+
+  async verifyTradingPlatformDemoUrl() {
+    const currentUrl = await this.page.url();
+
+    if (currentUrl === TradingPlanformURL.tradingPlatform_demoURL) {
+      await expect(this.page).toHaveURL(
+        TradingPlanformURL.tradingPlatform_demoURL
+      );
+    } else {
+      throw new Error(
+        "Bug! The trading platform page is not opened in 'Demo account' mode"
+      );
+    }
   }
 }
 export default TradingPlatform;
-
-//Trading Platform | Capital.com
