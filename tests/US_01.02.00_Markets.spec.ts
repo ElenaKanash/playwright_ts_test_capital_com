@@ -45,7 +45,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       const markets = new Markets(page);
 
       await markets.clickMarketsTradingBlockTryDemoBtn();
-      await expectLoginFormIsOpened(page);
+      await expectSignUpFormIsOpened(page);
     });
   });
 
