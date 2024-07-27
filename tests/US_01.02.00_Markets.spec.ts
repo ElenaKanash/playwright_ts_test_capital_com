@@ -5,9 +5,10 @@ import Header from '../pages/Header';
 import Markets from '../pages/Markets';
 import Login from '../pages/elements/Login';
 import {
-  expectTradingPlatform,
   expectSignUpFormIsOpened,
   expectLoginFormIsOpened,
+  expectTradingPlatform,
+  expectTradingPlatformDemoMode,
 } from '../pages/elements/Assertions';
 
 const license = 'FCA';
@@ -38,10 +39,10 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await expectSignUpFormIsOpened(page);
     });
 
-    test('TC_01.02.00_102_UnReg | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
+    test('TC_01.02!00_102_UnReg | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);      
+      const markets = new Markets(page);
 
       await markets.clickMarketsTradingBlockTryDemoBtn();
       await expectLoginFormIsOpened(page);
@@ -61,16 +62,16 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     test('TC_01.02!00_101_UnAuth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);      
+      const markets = new Markets(page);
 
       await markets.clickMarketsTradingBlockSignUpBtn();
       await expectSignUpFormIsOpened(page);
     });
 
-    test('TC_01.02.00_102_UnAuth | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
+    test('TC_01.02!00_102_UnAuth | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);      
+      const markets = new Markets(page);
 
       await markets.clickMarketsTradingBlockTryDemoBtn();
       await expectLoginFormIsOpened(page);
@@ -90,10 +91,19 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     test('TC_01.02!00_101_Auth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);     
-      
+      const markets = new Markets(page);
+
       await markets.clickMarketsTradingBlockSignUpBtn();
-      await  expectTradingPlatform(page);
+      await expectTradingPlatform(page);
+    });
+
+    test('TC_01.02!00_102_Auth | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
+      page,
+    }) => {
+      const markets = new Markets(page);
+
+      await markets.clickMarketsTradingBlockTryDemoBtn();
+      await expectTradingPlatformDemoMode(page);
     });
   });
 });
