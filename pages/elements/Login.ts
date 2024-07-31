@@ -45,7 +45,7 @@ class Login {
     this.getFormContinueBtn = page.getByRole('button', { name: 'Continue' });
 
     //Trading platform locators
-    this.getPlatformAccountBtn = page.getByText('live', { exact: true });
+    this.getPlatformAccountBtn = page.locator('menu-button.account');
     this.getPlatformLogoutBtn = page.getByRole('button', { name: 'Logout' });
   }
 
