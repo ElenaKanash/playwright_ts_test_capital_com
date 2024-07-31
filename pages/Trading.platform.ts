@@ -9,6 +9,7 @@ class TradingPlatform {
     this.page = page;
     //locators
     this.getPlatformLogo = page.locator('topbar .logo');
+    this.getPlatformAccountBtn = page.locator('menu-button.account');
   }
 
   async verifyTradingPlatform() {
@@ -22,7 +23,7 @@ class TradingPlatform {
     await this.page.waitForLoadState('load');
     await this.veryfyPlatformTitle();
     await this.verifyPlatformLogo();
-    await this.verifyTradingPlatformDemoUrl();
+    await this.verifyTradingPlatformDemoAccountBtn();
   }
 
   async verifyPlatformLogo() {
@@ -36,6 +37,10 @@ class TradingPlatform {
     await expect(this.page).toHaveURL(
       TradingPlanformURL.tradingPlatform_baseURL
     );
+  }
+
+  async verifyTradingPlatformDemoAccountBtn() {
+    await expect(this.getPlatformAccountBtn).toHaveText('DEMO')
   }
 
   async verifyTradingPlatformDemoUrl() {
