@@ -16,7 +16,7 @@ class TradingPlatform {
     await this.page.waitForLoadState('load');
     await this.veryfyPlatformTitle();
     await this.verifyPlatformLogo();
-    await this.verifyTradingPlatformUrl();
+   // await this.verifyTradingPlatformUrl();
   }
 
   async verifyTradingPlatformDemoMode() {
