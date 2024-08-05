@@ -40,7 +40,7 @@ class TradingPlatform {
   }
 
   async verifyTradingPlatformDemoAccountBtn() {
-    await expect(this.getPlatformAccountBtn).toHaveText('DEMO')
+    await expect(this.getPlatformAccountBtn).toHaveText('demo')
   }
 
   async verifyTradingPlatformDemoUrl() {
