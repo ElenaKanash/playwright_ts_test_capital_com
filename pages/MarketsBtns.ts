@@ -1,9 +1,6 @@
 import { Page } from '@playwright/test';
 
-export class MarkertTradingBlockSignUpButton{  
- /*  [x: string]: any; 
-  page: any; */
-  //private page: Page;
+export class MarkertTradingBlockSignUpButton{ 
   page: Page;
   getMarketsTradingBlockSignUpBtn: any;
   constructor(page: Page) {
@@ -16,16 +13,16 @@ export class MarkertTradingBlockSignUpButton{
   }
 }
 
-export class MarkertTradingBlockTryDemoButton{
-  [x: string]: any;
-  page: any;
-  constructor(page: any) {
+export class MarkertTradingBlockTryDemoButton{  
+  page: Page;
+  getMarketsTradingBlockTryDemoBtn: any;
+  constructor(page: Page) {
     this.page = page;
     this.getMarketsTradingBlockTryDemoBtn = page.locator('[data-type="fullscreen_banner_block_btn2demo"]');
   }
 
   async clickMarkertTradingBlockTryDemoButton() {
-    await this.getMarketsTradingBlockTryDemoBtn.cilck();
+    await this.getMarketsTradingBlockTryDemoBtn.click();
   }
 }
 
