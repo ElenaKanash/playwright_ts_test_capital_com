@@ -27,27 +27,27 @@ export class MarkertTradingBlockTryDemoButton{
 }
 
   export class MarkertDiscoverBlockCreateAccountButton {
-  [x: string]: any;
-  page: any;
-  constructor(page: any) {
+    page: Page;    
+    getMarkertDiscoverBlockCreateAccountBtn: any;
+    constructor(page: Page) {
     this.page = page;
     this.getMarkertDiscoverBlockCreateAccountBtn = page.locator('[data-type="tiles_w_img_btn1_signup"]');
   } 
 
   async  clickMarkertDiscoverBlockCreateAccountButton() {
-    await this.getMarkertDiscoverBlockCreateAccountBtn().click()
+    await this.getMarkertDiscoverBlockCreateAccountBtn.click()
   }  
 }
 
 export class MarkertDiscoverBlockTryDemoButton {
-  [x: string]: any;
-  page: any;
-  constructor(page: any) {
+  page: Page;
+  getMarkertDiscoverBlockTryDemoBtn: any;  
+  constructor(page: Page) {
   this.getMarkertDiscoverBlockTryDemoBtn = page.locator('[data-type="tiles_w_img_btn2_demo"]');
   }
 
   async clickMarkertDiscoverBlockTryDemoButton() {
-    await this.getMarkertDiscoverBlockTryDemoBtn().click()
+    await this.getMarkertDiscoverBlockTryDemoBtn.click()
   } 
   
 } 
