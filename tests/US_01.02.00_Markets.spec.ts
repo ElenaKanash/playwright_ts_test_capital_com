@@ -10,7 +10,7 @@ import {
   expectTradingPlatform,
   expectTradingPlatformDemoMode,
 } from '../pages/elements/Assertions';
-import {  MarkertTradingBlockSignUpButton, MarkertTradingBlockTryDemoButton } from '../pages/MarketsBtns';
+import {  MarkertDiscoverBlockCreateAccountButton, MarkertTradingBlockSignUpButton, MarkertTradingBlockTryDemoButton } from '../pages/elements/MarketsBtns';
 
 const license = 'FCA';
 const language = 'EN';
@@ -48,6 +48,13 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await markertTradingBlockTryDemoButton.clickMarkertTradingBlockTryDemoButton();
       await expectSignUpFormIsOpened(page);
     });
+
+    test('TC_01.02!00_103_UnReg | Markets > Menu item [Shares] > Click button [Create account ] in the block "Discover trading excellence with Capital.com"', async({page}) => {
+      const markertDiscoverBlockCreateAccountButton = new MarkertDiscoverBlockCreateAccountButton(page);
+
+      await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
+      await expectSignUpFormIsOpened(page);
+    });
   });
 
   test.describe('US_01.02!00_UnAuth | Menu [Markets] > Menu item [Shares],', () => {
@@ -77,6 +84,13 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await markertTradingBlockTryDemoButton.clickMarkertTradingBlockTryDemoButton();
       await expectLoginFormIsOpened(page);
     });
+
+    test('TC_01.02!00_103_UnAuth | Markets > Menu item [Shares] > Click button [Create account ] in the block "Discover trading excellence with Capital.com"', async({page}) => {
+      const markertDiscoverBlockCreateAccountButton = new MarkertDiscoverBlockCreateAccountButton(page);
+
+      await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
+      await expectLoginFormIsOpened(page);
+    });
   });
 
   test.describe('US_01.02!00_Auth | Menu [Markets] > Menu item [Shares],', () => {
@@ -104,6 +118,13 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       const markertTradingBlockTryDemoButton = new MarkertTradingBlockTryDemoButton(page);
 
       await markertTradingBlockTryDemoButton.clickMarkertTradingBlockTryDemoButton();
+      await expectTradingPlatformDemoMode(page);
+    });
+
+    test('TC_01.02!00_103_Auth | Markets > Menu item [Shares] > Click button [Create account ] in the block "Discover trading excellence with Capital.com"', async({page}) => {
+      const markertDiscoverBlockCreateAccountButton = new MarkertDiscoverBlockCreateAccountButton(page);
+
+      await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
       await expectTradingPlatformDemoMode(page);
     });
   });
