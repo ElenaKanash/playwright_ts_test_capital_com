@@ -45,8 +45,9 @@ class Login {
     this.getFormContinueBtn = page.getByRole('button', { name: 'Continue' });
 
     //Trading platform locators
-    this.getPlatformAccountBtn = page.getByText('live', { exact: true });
+    this.getPlatformAccountBtn = page.locator('menu-button.account');
     this.getPlatformLogoutBtn = page.getByRole('button', { name: 'Logout' });
+    this.getModalWindowCloseBtn = page.locator('.modal .icon-square');
   }
 
   //methods for English language
@@ -66,7 +67,7 @@ class Login {
     await this.fillPasswordField();
     await this.clickFormContinueBtn();
     await this.checkNavigationToPlatform();
-
+    await this.closePlatformModalWindow();
     await this.clickPlatformAccountBtn();
     await this.clickPlatformLogoutBtn();
     await this.page.waitForNavigation();
@@ -144,6 +145,10 @@ class Login {
     await expect(this.page).toHaveURL(
       TradingPlanformURL.tradingPlatform_baseURL
     );
+  }
+
+  async closePlatformModalWindow() {
+    await this.getModalWindowCloseBtn.click();
   }
 
   async clickPlatformAccountBtn() {

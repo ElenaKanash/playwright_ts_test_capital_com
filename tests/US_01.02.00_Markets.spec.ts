@@ -10,6 +10,7 @@ import {
   expectTradingPlatform,
   expectTradingPlatformDemoMode,
 } from '../pages/elements/Assertions';
+import {  MarkertTradingBlockSignUpButton, MarkertTradingBlockTryDemoButton } from '../pages/MarketsBtns';
 
 const license = 'FCA';
 const language = 'EN';
@@ -32,19 +33,19 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
 
     test('TC_01.02!00_101_UnReg | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
       page,
-    }) => {
-      const markets = new Markets(page);
+    }) => {      
+      const markertTradingBlockSignUpButton = new MarkertTradingBlockSignUpButton(page);
 
-      await markets.clickMarketsTradingBlockSignUpBtn();
-      await expectSignUpFormIsOpened(page);
+      await markertTradingBlockSignUpButton.clickMarkertTradingBlockSignUpButton();
+      await expectSignUpFormIsOpened(page);     
     });
 
     test('TC_01.02!00_102_UnReg | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);
+      const markertTradingBlockTryDemoButton = new MarkertTradingBlockTryDemoButton(page);
 
-      await markets.clickMarketsTradingBlockTryDemoBtn();
+      await markertTradingBlockTryDemoButton.clickMarkertTradingBlockTryDemoButton();
       await expectSignUpFormIsOpened(page);
     });
   });
@@ -62,18 +63,18 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     test('TC_01.02!00_101_UnAuth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);
+      const markertTradingBlockSignUpButton = new MarkertTradingBlockSignUpButton(page);
 
-      await markets.clickMarketsTradingBlockSignUpBtn();
+      await markertTradingBlockSignUpButton.clickMarkertTradingBlockSignUpButton();
       await expectSignUpFormIsOpened(page);
     });
 
     test('TC_01.02!00_102_UnAuth | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);
+      const markertTradingBlockTryDemoButton = new MarkertTradingBlockTryDemoButton(page);
 
-      await markets.clickMarketsTradingBlockTryDemoBtn();
+      await markertTradingBlockTryDemoButton.clickMarkertTradingBlockTryDemoButton();
       await expectLoginFormIsOpened(page);
     });
   });
@@ -91,18 +92,18 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     test('TC_01.02!00_101_Auth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);
+      const markertTradingBlockSignUpButton = new MarkertTradingBlockSignUpButton(page);
 
-      await markets.clickMarketsTradingBlockSignUpBtn();
+      await markertTradingBlockSignUpButton.clickMarkertTradingBlockSignUpButton();
       await expectTradingPlatform(page);
     });
 
     test('TC_01.02!00_102_Auth | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
       page,
     }) => {
-      const markets = new Markets(page);
+      const markertTradingBlockTryDemoButton = new MarkertTradingBlockTryDemoButton(page);
 
-      await markets.clickMarketsTradingBlockTryDemoBtn();
+      await markertTradingBlockTryDemoButton.clickMarkertTradingBlockTryDemoButton();
       await expectTradingPlatformDemoMode(page);
     });
   });
