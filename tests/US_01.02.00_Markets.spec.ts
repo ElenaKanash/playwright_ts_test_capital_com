@@ -10,7 +10,7 @@ import {
   expectTradingPlatform,
   expectTradingPlatformDemoMode,
 } from '../pages/elements/Assertions';
-import {  MarkertDiscoverBlockCreateAccountButton, MarkertTradingBlockSignUpButton, MarkertTradingBlockTryDemoButton } from '../pages/elements/MarketsBtns';
+import {  MarkertDiscoverBlockCreateAccountButton, MarkertDiscoverBlockTryDemoButton, MarkertTradingBlockSignUpButton, MarkertTradingBlockTryDemoButton } from '../pages/elements/MarketsBtns';
 
 const license = 'FCA';
 const language = 'EN';
@@ -23,7 +23,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     await homePage.clickAcceptAllCookiesBtn();
   });
 
-  test.describe('US_01.02!00_UnReg | Menu [Markets] > Menu item [Shares]', () => {
+  test.describe('US_01.02!00_UnReg Role', () => {
     test.beforeEach(async ({ page }) => {
       const header = new Header(page);
 
@@ -55,9 +55,16 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
       await expectSignUpFormIsOpened(page);
     });
+
+    test('TC_01.02!00_104_UnReg | Markets > Menu item [Shares] > Click button [Try Demo] in the block "Discover trading excellence with Capital.com"', async({page}) => {
+      const markertDiscoverBlockTryDemoButton = new MarkertDiscoverBlockTryDemoButton(page);
+
+      await markertDiscoverBlockTryDemoButton.clickMarkertDiscoverBlockTryDemoButton();
+      await expectSignUpFormIsOpened(page);
+    });
   });
 
-  test.describe('US_01.02!00_UnAuth | Menu [Markets] > Menu item [Shares],', () => {
+  test.describe('US_01.02!00_UnAuth Role', () => {
     test.beforeEach(async ({ page }) => {
       const login = new Login(page);
       const header = new Header(page);
@@ -91,9 +98,16 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
       await expectLoginFormIsOpened(page);
     });
+
+    test('TC_01.02!00_104_UnAuth | Markets > Menu item [Shares] > Click button [Try Demo] in the block "Discover trading excellence with Capital.com"', async({page}) => {
+      const markertDiscoverBlockTryDemoButton = new MarkertDiscoverBlockTryDemoButton(page);
+
+      await markertDiscoverBlockTryDemoButton.clickMarkertDiscoverBlockTryDemoButton();
+      await expectLoginFormIsOpened(page);
+    });
   });
 
-  test.describe('US_01.02!00_Auth | Menu [Markets] > Menu item [Shares],', () => {
+  test.describe('US_01.02!00_Auth Role', () => {
     test.beforeEach(async ({ page }) => {
       const login = new Login(page);
       const header = new Header(page);
@@ -125,6 +139,13 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       const markertDiscoverBlockCreateAccountButton = new MarkertDiscoverBlockCreateAccountButton(page);
 
       await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
+      await expectTradingPlatformDemoMode(page);
+    });
+
+    test('TC_01.02!00_104_Auth | Markets > Menu item [Shares] > Click button [Try Demo] in the block "Discover trading excellence with Capital.com"', async({page}) => {
+      const markertDiscoverBlockTryDemoButton = new MarkertDiscoverBlockTryDemoButton(page);
+
+      await markertDiscoverBlockTryDemoButton.clickMarkertDiscoverBlockTryDemoButton();
       await expectTradingPlatformDemoMode(page);
     });
   });
