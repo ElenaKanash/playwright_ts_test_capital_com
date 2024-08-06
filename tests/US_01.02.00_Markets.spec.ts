@@ -96,7 +96,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       const markertDiscoverBlockCreateAccountButton = new MarkertDiscoverBlockCreateAccountButton(page);
 
       await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
-      await expectLoginFormIsOpened(page);
+      await expectSignUpFormIsOpened(page);
     });
 
     test('TC_01.02!00_104_UnAuth | Markets > Menu item [Shares] > Click button [Try Demo] in the block "Discover trading excellence with Capital.com"', async({page}) => {
@@ -139,7 +139,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       const markertDiscoverBlockCreateAccountButton = new MarkertDiscoverBlockCreateAccountButton(page);
 
       await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
-      await expectTradingPlatformDemoMode(page);
+      await expectTradingPlatform(page);
     });
 
     test('TC_01.02!00_104_Auth | Markets > Menu item [Shares] > Click button [Try Demo] in the block "Discover trading excellence with Capital.com"', async({page}) => {
