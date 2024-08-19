@@ -18,13 +18,14 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
       - name: Run Playwright tests
-        run: npx playwright test --reporter=allure-results
+        run: npx playwright test --reporter=allure-results --verbose
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-results
-          path: allure-results
+          path: path: ${{ github.workspace }}/allure-results
           retention-days: 7
         
       - name: Get Allure history
