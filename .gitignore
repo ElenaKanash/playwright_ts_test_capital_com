@@ -4,7 +4,13 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 
+.env
+node_modules/
 /test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
 allure-results
 allure-report
 
