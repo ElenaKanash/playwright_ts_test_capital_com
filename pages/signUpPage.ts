@@ -1,20 +1,22 @@
+import { Locator, Page  } from '@playwright/test';
 import { expect } from '@playwright/test';
 
 class SignUp {
-  [x: string]: any;
-  constructor(page: any) {
-    this.page = page;
+  readonly page: Page;
+  readonly getSignUpForm: Locator;
+  readonly getHeadingForm: Locator;
+  readonly getSignUpLoginBtn: Locator;
+  readonly getCloseSignUpBtn: Locator;
 
-    //locators
+  constructor(page: Page) {
+    this.page = page;
     this.getSignUpForm = page.locator('[class*="modal_modal"]');
     //this.getHeadingForm = page.locator('[class*="modal"] [class*="heading_h3"]');
     this.getHeadingForm = page.locator('span').filter({ hasText: 'Sign up' }); 
     this.getSignUpLoginBtn = page.getByRole('button', { name: 'Login' });
-    this.getCloseSignUpBtn = page.locator('div [class*="modal"] [class*="modal_close"]');
-    
+    this.getCloseSignUpBtn = page.locator('div [class*="modal"] [class*="modal_close"]');    
   }
-
-  //methods
+  
   async verifySignUpForm() { 
     await this.formIsOpened();   
     await this.verifySignUpHeading();

@@ -1,56 +1,36 @@
+import { Locator, Page  } from '@playwright/test';
 import { test, expect } from '@playwright/test';
-import { FCA_URL, TradingPlanformURL } from '../../helpers/links';
-import { USER_DATA } from '../../helpers/testData';
-import TradingPlatform from './../Trading.platform';
+import { FCA_URL, TradingPlanformURL } from '../helpers/links';
+import { USER_DATA } from '../helpers/testData';
 
 class Login {
+  readonly page: Page;
   [x: string]: any;
-  constructor(page) {
+  constructor(page: Page) {
     this.page = page;
-    //locators
-    /*/ /Header login locators
-
-    this.getHeaderLoginBtn = page.locator('header [data-type="btn_header_login"]');  */
-    this.getHeaderMyAccountBtn = page
-      .locator('header a[href="/trading/platform"]')
-      .last();
-
-    //Header login locators for English language
+    //Header login locators  
     this.getHeaderLoginBtn = page.getByRole('button', { name: 'Log In' });
-    this.getHeaderMyAccountLink = page.getByRole('link', {
-      name: 'My account',
-    });
-
-    /*  //Login Form locators for all language
-        this.getFormEmailField = page.locator('form #email');
-    this.getFormPaswordField = page.locator('form #password');
-    this.getFormContinueBtn = page.locator('button[type="submit"]'); */
-
-    //Login Form locators for English language
+    //this.getHeaderLoginBtn = page.locator('header [data-type="btn_header_login"]'); 
+    this.getHeaderMyAccountLink = page.getByRole('link', { name: 'My account'});
+    this.getHeaderMyAccountBtn = page.locator('header a[href="/trading/platform"]').last();
+    //Login Form locators 
     this.getForm = page.locator('[class*="modal_modal"]');
-    this.getHeadingForm = page.locator(
-      'div [class*="modal"] [class*="heading_h3"]'
-    );
-    this.getFormSignUpBtn = page
-      .locator('[class*="modal_modal"]')
-      .getByRole('button', { name: 'Sign up' });
+    this.getHeadingForm = page.locator('div [class*="modal"] [class*="heading_h3"]');
+    this.getFormSignUpBtn = page.locator('[class*="modal_modal"]').getByRole('button', { name: 'Sign up' });
     this.getFormEmailField = page.getByLabel('Email address');
+    //this.getFormEmailField = page.locator('form #email');
     this.getFormPaswordField = page.getByLabel('Password');
-    this.getFormForgotPaswordBtn = page
-      .locator('[class*="modal_modal"]')
-      .getByRole('button', { name: 'Forgot password?' });
-    this.getFormLogMe7days = page
-      .locator('label')
-      .filter({ hasText: 'Log me out after 7 days' });
+    //this.getFormPaswordField = page.locator('form #password');
+    this.getFormForgotPaswordBtn = page.locator('[class*="modal_modal"]').getByRole('button', { name: 'Forgot password?' });
+    this.getFormLogMe7days = page.locator('label').filter({ hasText: 'Log me out after 7 days' });
     this.getFormContinueBtn = page.getByRole('button', { name: 'Continue' });
-
+    //this.getFormContinueBtn = page.locator('button[type="submit"]');
     //Trading platform locators
     this.getPlatformAccountBtn = page.locator('menu-button.account');
     this.getPlatformLogoutBtn = page.getByRole('button', { name: 'Logout' });
     this.getModalWindowCloseBtn = page.locator('.modal .icon-square');
   }
 
-  //methods for English language
   async autorizedUser() {
     await this.clickHeaderLoginBtn();
     await this.fillEmailField();
@@ -98,13 +78,6 @@ class Login {
       );
     }
     await expect(this.getHeadingForm).toHaveText('Login');
-    /*     if (headingText  === 'Login') {
-      await expect(this.getHeadingForm).toHaveText('Login')    
-    } else {
-      throw new Error(
-        "Bug! Opened a 'Sign up' form  instead of a 'Login' form"
-      );
-    } */
   }
 
   async verifyFormSignUpBtn() {

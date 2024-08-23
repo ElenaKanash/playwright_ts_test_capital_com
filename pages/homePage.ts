@@ -1,21 +1,20 @@
+import { Locator, Page } from '@playwright/test';
 import { FCA_URL } from '../helpers/links';
 
 class HomePage {
-  page: any;
-  AcceptAllCookiesBtn: any;
-  constructor(page: any) {
+  readonly page: Page;
+  readonly getAcceptAllCookiesBtn: Locator;
+  
+  constructor(page: Page) {
     this.page = page;
-
-    //locators
-    this.AcceptAllCookiesBtn = page.locator('#onetrust-accept-btn-handler');
+    this.getAcceptAllCookiesBtn = page.locator('#onetrust-accept-btn-handler');
   }
 
-  //methods
   async openMainPageFCA() {
     await this.page.goto(FCA_URL.FCABasePageUrl);
   }
   async clickAcceptAllCookiesBtn() {
-    await this.AcceptAllCookiesBtn.click();
+    await this.getAcceptAllCookiesBtn.click();
   }
 }
 export default HomePage;

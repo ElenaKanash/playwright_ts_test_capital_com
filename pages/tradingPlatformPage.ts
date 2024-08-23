@@ -1,38 +1,37 @@
+import { Locator, Page } from '@playwright/test';
 import { test, expect } from '@playwright/test';
 import { TradingPlanformURL } from '../helpers/links';
 
 const tradingPlatformTitle = 'Trading Platform | Capital.com';
 
 class TradingPlatform {
-  [x: string]: any;
-  constructor(page) {
+  readonly page: Page;
+  readonly getPlatformLogo: Locator;
+  readonly getPlatformAccountBtn: Locator;
+
+  constructor(page: Page) {
     this.page = page;
-    //locators
     this.getPlatformLogo = page.locator('topbar .logo');
-    this.getPlatformAccountBtn = page.locator('menu-button.account');    
+    this.getPlatformAccountBtn = page.locator('menu-button.account');
   }
 
   async verifyTradingPlatform() {
-    await this.page.waitForLoadState('load');    
+    await this.page.waitForLoadState('load');
     await this.veryfyPlatformTitle();
     await this.verifyPlatformLogo();
-   // await this.verifyTradingPlatformUrl();
   }
 
   async verifyTradingPlatformDemoMode() {
-    await this.page.waitForLoadState('load');   
+    await this.page.waitForLoadState('load');
     await this.veryfyPlatformTitle();
     await this.verifyPlatformLogo();
     await this.verifyTradingPlatformDemoAccountBtn();
   }
 
-  async closePlatformModalWindow() {
-    await this.getModalWindowCloseBtn.click();
+  async verifyPlatformLogo() {
+    await expect(this.getPlatformLogo).toBeVisible({ timeout: 10000 });
   }
 
-  async verifyPlatformLogo() {
-    await expect(this.getPlatformLogo).toBeVisible({timeout: 10000});
-  }
   async veryfyPlatformTitle() {
     await expect(this.page).toHaveTitle(tradingPlatformTitle);
   }
@@ -44,7 +43,7 @@ class TradingPlatform {
   }
 
   async verifyTradingPlatformDemoAccountBtn() {
-    await expect(this.getPlatformAccountBtn).toHaveText('demo')
+    await expect(this.getPlatformAccountBtn).toHaveText('demo');
   }
 
   async verifyTradingPlatformDemoUrl() {
