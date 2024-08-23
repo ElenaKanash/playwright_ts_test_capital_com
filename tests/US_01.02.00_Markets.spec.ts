@@ -1,16 +1,9 @@
 import { test, expect } from '@playwright/test';
-
 import HomePage from '../pages/homePage';
-import Header from '../pages/Header';
-import Markets from '../pages/Markets';
-import Login from '../pages/elements/Login';
-import {
-  expectSignUpFormIsOpened,
-  expectLoginFormIsOpened,
-  expectTradingPlatform,
-  expectTradingPlatformDemoMode,
-} from '../pages/elements/Assertions';
-import {  MarkertDiscoverBlockCreateAccountButton, MarkertDiscoverBlockTryDemoButton, MarkertTradingBlockSignUpButton, MarkertTradingBlockTryDemoButton } from '../pages/elements/MarketsBtns';
+import Header from '../pages/headerPage';
+import Login from '../pages/loginPage';
+import {  MarkertDiscoverBlockCreateAccountButton, MarkertDiscoverBlockTryDemoButton, MarkertTradingBlockSignUpButton, MarkertTradingBlockTryDemoButton } from '../pages/elements/marketsSectionButtons';
+import { Assertions } from '../pages/assertionsForTests';
 
 const license = 'FCA';
 const language = 'EN';
@@ -35,32 +28,36 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       page,
     }) => {      
       const markertTradingBlockSignUpButton = new MarkertTradingBlockSignUpButton(page);
+      const expect = new Assertions(page);
 
-      await markertTradingBlockSignUpButton.clickMarkertTradingBlockSignUpButton();
-      await expectSignUpFormIsOpened(page);     
+      await markertTradingBlockSignUpButton.clickMarkertTradingBlockSignUpButton();      
+      await expect.signUpFormIsOpened();    
     });
 
     test('TC_01.02!00_102_UnReg | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
       page,
     }) => {
       const markertTradingBlockTryDemoButton = new MarkertTradingBlockTryDemoButton(page);
+      const expect = new Assertions(page);
 
       await markertTradingBlockTryDemoButton.clickMarkertTradingBlockTryDemoButton();
-      await expectSignUpFormIsOpened(page);
+      await expect.signUpFormIsOpened(); 
     });
 
     test('TC_01.02!00_103_UnReg | Markets > Menu item [Shares] > Click button [Create account ] in the block "Discover trading excellence with Capital.com"', async({page}) => {
       const markertDiscoverBlockCreateAccountButton = new MarkertDiscoverBlockCreateAccountButton(page);
+      const expect = new Assertions(page);
 
       await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
-      await expectSignUpFormIsOpened(page);
+      await expect.signUpFormIsOpened(); 
     });
 
     test('TC_01.02!00_104_UnReg | Markets > Menu item [Shares] > Click button [Try Demo] in the block "Discover trading excellence with Capital.com"', async({page}) => {
       const markertDiscoverBlockTryDemoButton = new MarkertDiscoverBlockTryDemoButton(page);
+      const expect = new Assertions(page);
 
       await markertDiscoverBlockTryDemoButton.clickMarkertDiscoverBlockTryDemoButton();
-      await expectSignUpFormIsOpened(page);
+      await expect.signUpFormIsOpened(); 
     });
   });
 
@@ -78,32 +75,36 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       page,
     }) => {
       const markertTradingBlockSignUpButton = new MarkertTradingBlockSignUpButton(page);
+      const expect = new Assertions(page);
 
       await markertTradingBlockSignUpButton.clickMarkertTradingBlockSignUpButton();
-      await expectSignUpFormIsOpened(page);
+      await expect.signUpFormIsOpened(); 
     });
 
     test('TC_01.02!00_102_UnAuth | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
       page,
     }) => {
       const markertTradingBlockTryDemoButton = new MarkertTradingBlockTryDemoButton(page);
+      const expect = new Assertions(page);
 
       await markertTradingBlockTryDemoButton.clickMarkertTradingBlockTryDemoButton();
-      await expectLoginFormIsOpened(page);
+      await expect.loginFormIsOpened();
     });
 
     test('TC_01.02!00_103_UnAuth | Markets > Menu item [Shares] > Click button [Create account ] in the block "Discover trading excellence with Capital.com"', async({page}) => {
       const markertDiscoverBlockCreateAccountButton = new MarkertDiscoverBlockCreateAccountButton(page);
+      const expect = new Assertions(page);
 
       await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
-      await expectSignUpFormIsOpened(page);
+      await expect.signUpFormIsOpened();
     });
 
     test('TC_01.02!00_104_UnAuth | Markets > Menu item [Shares] > Click button [Try Demo] in the block "Discover trading excellence with Capital.com"', async({page}) => {
       const markertDiscoverBlockTryDemoButton = new MarkertDiscoverBlockTryDemoButton(page);
+      const expect = new Assertions(page);
 
       await markertDiscoverBlockTryDemoButton.clickMarkertDiscoverBlockTryDemoButton();
-      await expectLoginFormIsOpened(page);
+      await expect.loginFormIsOpened();
     });
   });
 
@@ -121,32 +122,36 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       page,
     }) => {
       const markertTradingBlockSignUpButton = new MarkertTradingBlockSignUpButton(page);
+      const expect = new Assertions(page);
 
       await markertTradingBlockSignUpButton.clickMarkertTradingBlockSignUpButton();
-      await expectTradingPlatform(page);
+      await expect.tradingPlatformIsOpened();
     });
 
     test('TC_01.02!00_102_Auth | Markets > Menu item [Shares] > Click button [Try Demo]  in the block "Shares trading"', async ({
       page,
     }) => {
       const markertTradingBlockTryDemoButton = new MarkertTradingBlockTryDemoButton(page);
+      const expect = new Assertions(page);
 
       await markertTradingBlockTryDemoButton.clickMarkertTradingBlockTryDemoButton();
-      await expectTradingPlatformDemoMode(page);
+      await expect.tradingPlatformDemoModeIsOpened();
     });
 
     test('TC_01.02!00_103_Auth | Markets > Menu item [Shares] > Click button [Create account ] in the block "Discover trading excellence with Capital.com"', async({page}) => {
       const markertDiscoverBlockCreateAccountButton = new MarkertDiscoverBlockCreateAccountButton(page);
+      const expect = new Assertions(page);
 
       await markertDiscoverBlockCreateAccountButton.clickMarkertDiscoverBlockCreateAccountButton();
-      await expectTradingPlatform(page);
+      await expect.tradingPlatformIsOpened();
     });
 
     test('TC_01.02!00_104_Auth | Markets > Menu item [Shares] > Click button [Try Demo] in the block "Discover trading excellence with Capital.com"', async({page}) => {
       const markertDiscoverBlockTryDemoButton = new MarkertDiscoverBlockTryDemoButton(page);
+      const expect = new Assertions(page);
 
       await markertDiscoverBlockTryDemoButton.clickMarkertDiscoverBlockTryDemoButton();
-      await expectTradingPlatformDemoMode(page);
+      await expect.tradingPlatformDemoModeIsOpened();
     });
   });
 });
