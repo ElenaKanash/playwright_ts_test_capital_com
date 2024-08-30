@@ -4,6 +4,7 @@ import Header from '../pages/headerPage';
 import Login from '../pages/loginPage';
 import {  MarkertDiscoverBlockCreateAccountButton, MarkertDiscoverBlockTryDemoButton, MarkertTradingBlockSignUpButton, MarkertTradingBlockTryDemoButton } from '../pages/elements/marketsSectionButtons';
 import { Assertions } from '../pages/assertionsForTests';
+import TableTradingInstruments from './../pages/elements/tableTradingInstruments';
 
 const license = 'FCA';
 const language = 'EN';
@@ -59,6 +60,13 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await markertDiscoverBlockTryDemoButton.clickMarkertDiscoverBlockTryDemoButton();
       await expect.signUpFormIsOpened(); 
     });
+
+    test('TC_01.02!00_105_UnReg | Markets > Menu item [Shares] > Click four random trading instruments on the widget “Trading instrument”', async({page}) => { 
+      const tableTradingInstruments = new TableTradingInstruments(page);     
+      const expect = new Assertions(page);
+
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();      
+    });
   });
 
   test.describe('US_01.02!00_UnAuth Role', () => {
@@ -106,6 +114,13 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await markertDiscoverBlockTryDemoButton.clickMarkertDiscoverBlockTryDemoButton();
       await expect.loginFormIsOpened();
     });
+
+    test('TC_01.02!00_105_UnAuth | Markets > Menu item [Shares] > Click four random trading instruments on the widget “Trading instrument”', async({page}) => { 
+      const tableTradingInstruments = new TableTradingInstruments(page);     
+      const expect = new Assertions(page);
+
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();      
+    });
   });
 
   test.describe('US_01.02!00_Auth Role', () => {
@@ -152,6 +167,13 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
 
       await markertDiscoverBlockTryDemoButton.clickMarkertDiscoverBlockTryDemoButton();
       await expect.tradingPlatformDemoModeIsOpened();
+    });
+
+    test('TC_01.02!00_105_Auth | Markets > Menu item [Shares] > Click four random trading instruments on the widget “Trading instrument”', async({page}) => { 
+      const tableTradingInstruments = new TableTradingInstruments(page);     
+      const expect = new Assertions(page);
+
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();      
     });
   });
 });
