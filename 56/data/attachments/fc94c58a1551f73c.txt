@@ -1,0 +1,4 @@
+selected trading instrument: SMSN
+selected trading instrument: SMCI
+selected trading instrument: 6762
+selected trading instrument: SUNW

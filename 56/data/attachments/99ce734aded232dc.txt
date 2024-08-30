@@ -1,0 +1,4 @@
+selected trading instrument: DG
+selected trading instrument: SMCI
+selected trading instrument: 7012
+selected trading instrument: OLB

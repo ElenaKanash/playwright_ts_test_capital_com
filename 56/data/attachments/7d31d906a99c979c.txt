@@ -1,0 +1,4 @@
+selected trading instrument: 9433
+selected trading instrument: META
+selected trading instrument: 5803
+selected trading instrument: SALM
