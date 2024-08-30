@@ -50,7 +50,8 @@ class Login {
     await this.closePlatformModalWindow();
     await this.clickPlatformAccountBtn();
     await this.clickPlatformLogoutBtn();
-    await this.page.waitForNavigation();
+    //await this.page.waitForNavigation();
+    await this.page.waitForLoadState('networkidle');
     await this.openMainPageFCA();
     await this.checkHeaderLoginBtn();
   }
