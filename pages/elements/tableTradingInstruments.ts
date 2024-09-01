@@ -6,6 +6,7 @@ class TableTradingInstruments {
   readonly getSortDropdown: Locator;
   readonly getTableRow: Locator;
   readonly getPageInstrumentHeading: Locator;
+  rowHeadingText: string;
 
   constructor(page: Page) {
     this.page = page;
@@ -16,25 +17,33 @@ class TableTradingInstruments {
     this.getPageInstrumentHeading = page.locator('h1');
   }
 
-  async clickRandomInstrumentInTheSortedTable() { 
-    const dropdownSorOoptions = ['Top fallers', 'Most traded', 'Top risers', 'Most volatile'];
+  async clickRandomInstrumentInTheSortedTable() {
+    const dropdownSortOoptions = ['Top fallers', 'Most traded', 'Top risers', 'Most volatile'];
 
-    for (let item of dropdownSorOoptions) {
-      await this.getSortDropdown.scrollIntoViewIfNeeded();
-      await this.getSortDropdown.click();
+    for (let item of dropdownSortOoptions) {
+      await this.clickSortDropdown();
       await this.getOptionList.filter({ hasText: item }).click();
       await this.page.waitForTimeout(1000);
+      await this.clickrandomRow();
+      
+      await expect(this.getPageInstrumentHeading).toContainText(this.rowHeadingText);
+      const pageInstrumentTitle = await this.page.title();
+      expect(pageInstrumentTitle).toContain(this.rowHeadingText);
 
-      const randomRow = await this.getRandomRow();
-      const rowHeadingText = await randomRow.innerText();
-      console.log(`selected trading instrument: ${rowHeadingText}`);      
-      await randomRow.click();
-      //await this.page.waitForLoadState('networkidle');
-      
-      await expect(this.getPageInstrumentHeading).toContainText(rowHeadingText);
-      
       await this.page.goBack();
     }
+  }
+
+  async clickSortDropdown() {
+    await this.getSortDropdown.scrollIntoViewIfNeeded();
+    await this.getSortDropdown.click();
+  }
+
+  async clickrandomRow() {
+    const randomRow = await this.getRandomRow();
+    this.rowHeadingText = await randomRow.innerText();
+    console.log(`selected trading instrument: ${this.rowHeadingText}`);
+    await randomRow.click();
   }
 
   private async getRandomRow() {
