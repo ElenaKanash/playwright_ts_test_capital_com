@@ -212,7 +212,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     });
   });
 
-  test.describe.only('TC_01.02!00_199_All Roles', () => {
+  test.describe('TC_01.02!00_199_All Roles', () => {
     test.beforeEach(async ({ page }) => {
       const header = new Header(page);
 
