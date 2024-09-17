@@ -1,4 +1,4 @@
-import { Locator, Page  } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import { test, expect } from '@playwright/test';
 import { FCA_URL, TradingPlanformURL } from '../helpers/links';
 import { USER_DATA } from '../helpers/testData';
@@ -11,8 +11,9 @@ class Login {
     //Header login locators  
     this.getHeaderLoginBtn = page.getByRole('button', { name: 'Log In' });
     //this.getHeaderLoginBtn = page.locator('header [data-type="btn_header_login"]'); 
-    this.getHeaderMyAccountLink = page.getByRole('link', { name: 'My account'});
-    this.getHeaderMyAccountBtn = page.locator('header a[href="/trading/platform"]').last();
+    this.getHeaderMyAccountLink = page.getByRole('link', { name: 'My account' });
+   // this.getHeaderMyAccountBtn = page.locator('header a[href="/trading/platform"]').last();
+   this.getHeaderMyAccountBtn = page.locator('a[data-type="btn_header_my_account"]').last()
     //Login Form locators 
     this.getForm = page.locator('[class*="modal_modal"]');
     this.getHeadingForm = page.locator('div [class*="modal"] [class*="heading_h3"]');
@@ -36,7 +37,7 @@ class Login {
     await this.fillEmailField();
     await this.fillPasswordField();
     await this.clickFormContinueBtn();
-    await this.checkNavigationToPlatform();
+    await this.checkNavigationToPlatform();        
     await this.page.goBack();
     await this.checkMyAccountButton();
   }
@@ -114,11 +115,11 @@ class Login {
     await this.getFormContinueBtn.click();
   }
 
-  async checkNavigationToPlatform() {
-    await this.page.waitForNavigation();
-    await expect(this.page).toHaveURL(
-      TradingPlanformURL.tradingPlatform_baseURL
-    );
+  async checkNavigationToPlatform() {  
+    await this.page.waitForLoadState('load');
+    const tradingPlatformTitle = 'Trading Platform | Capital.com'
+    await expect(this.page).toHaveTitle(tradingPlatformTitle);
+
   }
 
   async closePlatformModalWindow() {
@@ -141,8 +142,8 @@ class Login {
     await expect(this.getHeaderLoginBtn).toBeVisible();
   }
 
-  async checkMyAccountButton() {
-    await this.page.waitForLoadState('load');
+  async checkMyAccountButton() {    
+    await this.page.waitForLoadState('networkidle');    
     await expect(this.getHeaderMyAccountBtn).toBeVisible();
   }
 }
