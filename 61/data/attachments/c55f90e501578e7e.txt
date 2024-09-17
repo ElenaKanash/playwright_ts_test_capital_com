@@ -1,0 +1,4 @@
+selected trading instrument: 6758
+selected trading instrument: NVDA
+selected trading instrument: NVR
+selected trading instrument: TNXP

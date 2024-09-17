@@ -1,0 +1,2 @@
+selected trading instrument: AAPL
+123
