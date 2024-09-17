@@ -51,6 +51,7 @@ class TableTradingInstruments {
   }
 
   async clickrandomRow() {
+    await this.page.waitForSelector('[class*="row_link"]');
     const randomRow = await this.getRandomRow();
     this.rowHeadingText = await randomRow.innerText();
     console.log(`selected trading instrument: ${this.rowHeadingText}`);
