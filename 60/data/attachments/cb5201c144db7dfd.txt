@@ -1,0 +1,4 @@
+selected trading instrument: 6758
+selected trading instrument: AMZN
+selected trading instrument: RH
+selected trading instrument: TNXP
