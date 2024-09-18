@@ -1,0 +1,4 @@
+selected trading instrument: 9001
+selected trading instrument: INTC
+selected trading instrument: 6098
+selected trading instrument: TUP

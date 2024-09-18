@@ -1,0 +1,4 @@
+selected trading instrument: 7013
+selected trading instrument: META
+selected trading instrument: 6098
+selected trading instrument: TUP
