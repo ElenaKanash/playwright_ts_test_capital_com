@@ -11,9 +11,10 @@ class Login {
     //Header login locators  
     this.getHeaderLoginBtn = page.getByRole('button', { name: 'Log In' });
     //this.getHeaderLoginBtn = page.locator('header [data-type="btn_header_login"]'); 
-    this.getHeaderMyAccountLink = page.getByRole('link', { name: 'My account' });
+    //this.getHeaderMyAccountLink = page.getByRole('link', { name: 'My account' });
    // this.getHeaderMyAccountBtn = page.locator('header a[href="/trading/platform"]').last();
-   this.getHeaderMyAccountBtn = page.locator('a[data-type="btn_header_my_account"]').last()
+    this.getHeaderMyAccountBtn = page.getByRole('link', { name: 'My account' })
+    //this.getHeaderMyAccountBtn = page.locator('a[data-type="btn_header_my_account"]').last()
     //Login Form locators 
     this.getForm = page.locator('[class*="modal_modal"]');
     this.getHeadingForm = page.locator('div [class*="modal"] [class*="heading_h3"]');
@@ -50,8 +51,7 @@ class Login {
     await this.checkNavigationToPlatform();
     await this.closePlatformModalWindow();
     await this.clickPlatformAccountBtn();
-    await this.clickPlatformLogoutBtn();
-    //await this.page.waitForNavigation();
+    await this.clickPlatformLogoutBtn();    
     await this.page.waitForLoadState('networkidle');
     await this.openMainPageFCA();
     await this.checkHeaderLoginBtn();
@@ -118,7 +118,7 @@ class Login {
   async checkNavigationToPlatform() {  
     await this.page.waitForLoadState('load');
     const tradingPlatformTitle = 'Trading Platform | Capital.com'
-    await expect(this.page).toHaveTitle(tradingPlatformTitle);
+    await expect.soft(this.page).toHaveTitle(tradingPlatformTitle);
 
   }
 
