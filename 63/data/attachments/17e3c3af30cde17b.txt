@@ -1,0 +1,4 @@
+selected trading instrument: LTRPB
+selected trading instrument: AAPL
+selected trading instrument: 8253
+selected trading instrument: TNXP
