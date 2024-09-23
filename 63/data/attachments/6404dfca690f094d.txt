@@ -1,0 +1,4 @@
+selected trading instrument: MTD
+selected trading instrument: AAPL
+selected trading instrument: 9983
+selected trading instrument: ZEPP
