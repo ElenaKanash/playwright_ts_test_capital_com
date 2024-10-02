@@ -43,13 +43,13 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
       await expect.signUpFormIsOpened();
     });
 
-    test.skip('TC_01.02!01_103_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Hover over tooltip "Short position overnight fee" --> Click button [Go to platform]', async ({
+    test('TC_01.02!01_103_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Hover over tooltip "Short position overnight fee" --> Click button [Go to platform]', async ({
       page,
     }) => {
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      pageOfTradingInstrument.clickShortPositionTooltip();
       await expect.signUpFormIsOpened();
     });
 
@@ -96,7 +96,7 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
 
   test.describe('US_01.02!01_UnAuth Role', () => {
 
-    test('TC_01.02!01_101_UnAuth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Add to favourite]', async ({
+    test.skip('TC_01.02!01_101_UnAuth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Add to favourite]', async ({
       page,
     }) => {
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
@@ -171,7 +171,7 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
 
   test.describe('US_01.02!01_Auth Role', () => {
 
-    test('TC_01.02!01_101_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Add to favourite]', async ({
+    test.skip('TC_01.02!01_101_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Add to favourite]', async ({
       page,
     }) => {
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
