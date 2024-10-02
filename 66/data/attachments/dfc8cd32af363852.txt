@@ -1,0 +1,4 @@
+selected trading instrument: 4063
+selected trading instrument: AAPL
+selected trading instrument: 0388
+selected trading instrument: FGEN
