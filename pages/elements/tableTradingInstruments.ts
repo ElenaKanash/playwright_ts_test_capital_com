@@ -74,6 +74,12 @@ class TableTradingInstruments {
     console.log(`Saved ${links.length} links to ${filePath}`);
   }
 
+  async clickTableInstrumentLinks() {
+    await this.page.waitForSelector('[class*="row_link"]');
+    const randomRow = await this.getRandomRow();    
+    await randomRow.click();  
+  }
+
   private async getRandomRow() {
     const rows = await this.getTableRow.all();
     const randomIndex = Math.floor(Math.random() * Math.min(rows.length, 10));

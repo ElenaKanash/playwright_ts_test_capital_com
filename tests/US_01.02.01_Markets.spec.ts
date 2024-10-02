@@ -18,7 +18,7 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
     await homePage.clickAcceptAllCookiesBtn();
     await header.hoverMarketsMenu();
     await header.clickMarketsSharesMenuItem();
-    await tableTradingInstruments.clickrandomRow();
+    await tableTradingInstruments.clickTableInstrumentLinks();
   });
 
   test.describe('US_01.02!01_UnReg Role', () => {
@@ -33,13 +33,13 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
       await expect.signUpFormIsOpened();
     });
 
-    test.skip('TC_01.02!01_102_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', async ({
+    test('TC_01.02!01_102_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', async ({
       page,
     }) => {
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      pageOfTradingInstrument.clickLongPositionTooltip();
       await expect.signUpFormIsOpened();
     });
 
