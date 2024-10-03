@@ -1,6 +1,7 @@
 import { Locator, Page, expect } from '@playwright/test';
 
-export class PageOfTradingInstrument {
+export class PageOfTradingInstrument { 
+
   readonly page: Page;
   readonly getAddToFavouriteButton: Locator;
   readonly getLongPositionTooltip: Locator;
@@ -64,12 +65,18 @@ export class PageOfTradingInstrument {
   }
 
   async clickNotificationBellButton() {
-    this.getNotificationBellButton.click();
+    await this.getNotificationBellButton.click();
   }
 
   async clickViewDetailedCharButton() {
-    this.getViewDetailedCharButton.click();
+    await this.getViewDetailedCharButton.click();
   }
+
+  async clickSellButton() {
+    await this.getSellButton.click();
+  }
+
+
 
 
 }
