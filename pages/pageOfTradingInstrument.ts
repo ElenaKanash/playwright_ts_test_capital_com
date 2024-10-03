@@ -76,7 +76,7 @@ export class PageOfTradingInstrument {
     await this.getSellButton.click();
   }
 
-
-
-
+  async clickBuyButton() {
+    await this.getBuyButton.click();
+  }
 }
