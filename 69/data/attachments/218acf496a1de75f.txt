@@ -1,0 +1,4 @@
+selected trading instrument: COKE
+selected trading instrument: AAPL
+selected trading instrument: 9984
+selected trading instrument: SENau
