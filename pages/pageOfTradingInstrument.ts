@@ -15,15 +15,15 @@ export class PageOfTradingInstrument {
   constructor(page: Page) {
     this.page = page;
 
-    this.getAddToFavouriteButton = page.getByRole('button', { name: 'Add to favourite' }); 
-    
+    this.getAddToFavouriteButton = page.getByRole('button', { name: 'Add to favourite' });
+
     //this.getLongPositionTooltip = page.locator('[class*="overnight-fee"]').first();
     //this.getLongPositionGoToPlatformButton = page.locator('a[data-type="market_go_to_platform_btn"]').first();
-    this.getLongPositionTooltip = page.locator('[class*="overnight-fee"] span').filter({hasText: 'Long position overnight funding adjustment'});
-    this.getLongPositionGoToPlatformButton = page.getByRole('cell', { name: 'Long position overnight' }).getByRole('link');    
+    this.getLongPositionTooltip = page.locator('[class*="overnight-fee"] span').filter({ hasText: 'Long position overnight funding adjustment' });
+    this.getLongPositionGoToPlatformButton = page.getByRole('cell', { name: 'Long position overnight' }).getByRole('link');
 
-    this.getShortPositionTooltip = page.locator('span').filter({ hasText: 'Short position overnight' });    
-    this.getShortPositionGoToPlatformButton = page.getByRole('cell', { name: 'Short position overnight' }).getByRole('link'); 
+    this.getShortPositionTooltip = page.locator('span').filter({ hasText: 'Short position overnight' });
+    this.getShortPositionGoToPlatformButton = page.getByRole('cell', { name: 'Short position overnight' }).getByRole('link');
 
     this.getNotificationBellButton = page.locator('[data-type="market_alerts"]');
     this.getViewDetailedCharButton = page.getByRole('button', { name: 'View detailed chart' });
@@ -42,26 +42,29 @@ export class PageOfTradingInstrument {
     await expect(this.getLongPositionGoToPlatformButton).toBeVisible();
     // await this.getLongPositionGoToPlatformButton.click();
     //await this.getLongPositionGoToPlatformButton.dispatchEvent('click');
-     await this.page.evaluate((selector) => {
+    await this.page.evaluate((selector) => {
       const element = document.querySelector(selector);
       if (element) {
         element.click();
       }
-    }, 'a[data-type="market_go_to_platform_btn"]'); 
+    }, 'a[data-type="market_go_to_platform_btn"]');
   }
 
   async clickShortPositionTooltip() {
     await expect(this.getShortPositionTooltip).toBeVisible({ timeout: 6000 });
     await this.getShortPositionTooltip.hover();
-    await expect(this.getShortPositionGoToPlatformButton).toBeVisible(); 
+    await expect(this.getShortPositionGoToPlatformButton).toBeVisible();
     //await this.getShortPositionGoToPlatformButton.dispatchEvent('click');   
-     await this.page.evaluate((selector) => {
+    await this.page.evaluate((selector) => {
       const element = document.querySelector(selector);
       if (element) {
         element.click();
       }
-    }, 'a[data-type="market_go_to_platform_btn"]'); 
+    }, 'a[data-type="market_go_to_platform_btn"]');
+  }
 
+  async clickNotificationBellButton() {
+    this.getNotificationBellButton.click();
   }
 
 
