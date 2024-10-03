@@ -73,23 +73,23 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
       await expect.signUpFormIsOpened();
     });
 
-    test.skip('TC_01.02!01_106_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Sell]', async ({
+    test('TC_01.02!01_106_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Sell]', async ({
       page,
     }) => {
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      pageOfTradingInstrument.clickSellButton();
       await expect.signUpFormIsOpened();
     });
 
-    test.skip('TC_01.02!01_107_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Buy]', async ({
+    test('TC_01.02!01_107_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Buy]', async ({
       page,
     }) => {
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      pageOfTradingInstrument.clickBuyButton();
       await expect.signUpFormIsOpened();
     });
   });
