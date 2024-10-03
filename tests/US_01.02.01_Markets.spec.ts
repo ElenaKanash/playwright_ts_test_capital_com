@@ -53,13 +53,13 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
       await expect.signUpFormIsOpened();
     });
 
-    test.skip('TC_01.02!01_104_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Notification] on the widget “Trading instrument', async ({
+    test('TC_01.02!01_104_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Notification] on the widget “Trading instrument', async ({
       page,
     }) => {
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      pageOfTradingInstrument.clickNotificationBellButton();
       await expect.signUpFormIsOpened();
     });
 
