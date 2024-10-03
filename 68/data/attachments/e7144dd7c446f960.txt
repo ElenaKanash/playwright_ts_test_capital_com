@@ -1,0 +1,4 @@
+selected trading instrument: GIVN
+selected trading instrument: AMD
+selected trading instrument: 6586
+selected trading instrument: DLPN
