@@ -63,13 +63,13 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
       await expect.signUpFormIsOpened();
     });
 
-    test.skip('TC_01.02!01_105_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [View detailed chart] on the widget “Trading instrument', async ({
+    test('TC_01.02!01_105_UnReg | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [View detailed chart] on the widget “Trading instrument', async ({
       page,
     }) => {
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      pageOfTradingInstrument.clickViewDetailedCharButton();
       await expect.signUpFormIsOpened();
     });
 
