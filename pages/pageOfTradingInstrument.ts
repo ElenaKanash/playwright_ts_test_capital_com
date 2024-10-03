@@ -67,5 +67,9 @@ export class PageOfTradingInstrument {
     this.getNotificationBellButton.click();
   }
 
+  async clickViewDetailedCharButton() {
+    this.getViewDetailedCharButton.click();
+  }
+
 
 }
