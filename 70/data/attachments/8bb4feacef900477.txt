@@ -1,0 +1,4 @@
+selected trading instrument: LRCX
+selected trading instrument: AMD
+selected trading instrument: 9984
+selected trading instrument: ZEPP

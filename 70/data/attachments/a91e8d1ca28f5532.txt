@@ -1,0 +1,4 @@
+selected trading instrument: 7012
+selected trading instrument: AMD
+selected trading instrument: 4063
+selected trading instrument: SUNW
