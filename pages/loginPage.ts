@@ -1,59 +1,30 @@
-import { Locator, Page  } from '@playwright/test';
-import { test, expect } from '@playwright/test';
-import { FCA_URL, TradingPlanformURL } from '../helpers/links';
-import { USER_DATA } from '../helpers/testData';
+import { Locator, Page } from '@playwright/test';
+import { expect } from '@playwright/test';
 
 class Login {
   readonly page: Page;
-  [x: string]: any;
+  readonly getForm: Locator;
+  readonly getHeadingForm: Locator;
+  readonly getFormSignUpBtn: Locator;
+  readonly getFormEmailField: Locator;
+  readonly getFormPaswordField: Locator;
+  readonly getFormForgotPaswordBtn: Locator;
+  readonly getFormLogMe7days: Locator;
+  readonly getFormContinueBtn: Locator;
+  readonly getCloseLoginBtn: Locator;
+
   constructor(page: Page) {
     this.page = page;
-    //Header login locators  
-    this.getHeaderLoginBtn = page.getByRole('button', { name: 'Log In' });
-    //this.getHeaderLoginBtn = page.locator('header [data-type="btn_header_login"]'); 
-    this.getHeaderMyAccountLink = page.getByRole('link', { name: 'My account'});
-    this.getHeaderMyAccountBtn = page.locator('header a[href="/trading/platform"]').last();
-    //Login Form locators 
+
     this.getForm = page.locator('[class*="modal_modal"]');
     this.getHeadingForm = page.locator('div [class*="modal"] [class*="heading_h3"]');
     this.getFormSignUpBtn = page.locator('[class*="modal_modal"]').getByRole('button', { name: 'Sign up' });
-    this.getFormEmailField = page.getByLabel('Email address');
-    //this.getFormEmailField = page.locator('form #email');
-    this.getFormPaswordField = page.getByLabel('Password');
-    //this.getFormPaswordField = page.locator('form #password');
+    this.getFormEmailField = page.getByLabel('Email address');    
+    this.getFormPaswordField = page.getByLabel('Password');    
     this.getFormForgotPaswordBtn = page.locator('[class*="modal_modal"]').getByRole('button', { name: 'Forgot password?' });
     this.getFormLogMe7days = page.locator('label').filter({ hasText: 'Log me out after 7 days' });
     this.getFormContinueBtn = page.getByRole('button', { name: 'Continue' });
-    //this.getFormContinueBtn = page.locator('button[type="submit"]');
-    //Trading platform locators
-    this.getPlatformAccountBtn = page.locator('menu-button.account');
-    this.getPlatformLogoutBtn = page.getByRole('button', { name: 'Logout' });
-    this.getModalWindowCloseBtn = page.locator('.modal .icon-square');
-  }
-
-  async autorizedUser() {
-    await this.clickHeaderLoginBtn();
-    await this.fillEmailField();
-    await this.fillPasswordField();
-    await this.clickFormContinueBtn();
-    await this.checkNavigationToPlatform();
-    await this.page.goBack();
-    await this.checkMyAccountButton();
-  }
-
-  async unAutorizedUser() {
-    await this.clickHeaderLoginBtn();
-    await this.fillEmailField();
-    await this.fillPasswordField();
-    await this.clickFormContinueBtn();
-    await this.checkNavigationToPlatform();
-    await this.closePlatformModalWindow();
-    await this.clickPlatformAccountBtn();
-    await this.clickPlatformLogoutBtn();
-    //await this.page.waitForNavigation();
-    await this.page.waitForLoadState('networkidle');
-    await this.openMainPageFCA();
-    await this.checkHeaderLoginBtn();
+    this.getCloseLoginBtn = page.locator('div [class*="modal"] [class*="modal_close"]');
   }
 
   async verifyLoginForm() {
@@ -89,6 +60,10 @@ class Login {
     await expect(this.getFormEmailField).toBeVisible();
   }
 
+  async verifyPasswordField() {
+    await expect(this.getFormPaswordField).toBeVisible();
+  }
+
   async verifyFormForgotPaswordBtn() {
     await expect(this.getFormForgotPaswordBtn).toBeVisible();
   }
@@ -101,49 +76,9 @@ class Login {
     await expect(this.getFormContinueBtn).toBeVisible();
   }
 
-  async clickHeaderLoginBtn() {
-    await this.getHeaderLoginBtn.click();
-  }
-  async fillEmailField() {
-    await this.getFormEmailField.fill(USER_DATA.email);
-  }
-  async fillPasswordField() {
-    await this.getFormPaswordField.fill(USER_DATA.password);
-  }
-  async clickFormContinueBtn() {
-    await this.getFormContinueBtn.click();
-  }
-
-  async checkNavigationToPlatform() {
-    await this.page.waitForNavigation();
-    await expect(this.page).toHaveURL(
-      TradingPlanformURL.tradingPlatform_baseURL
-    );
-  }
-
-  async closePlatformModalWindow() {
-    await this.getModalWindowCloseBtn.click();
-  }
-
-  async clickPlatformAccountBtn() {
-    await this.getPlatformAccountBtn.click();
-  }
-
-  async clickPlatformLogoutBtn() {
-    await this.getPlatformLogoutBtn.click();
-  }
-
-  async openMainPageFCA() {
-    await this.page.goto(FCA_URL.FCABasePageUrl);
-  }
-
-  async checkHeaderLoginBtn() {
-    await expect(this.getHeaderLoginBtn).toBeVisible();
-  }
-
-  async checkMyAccountButton() {
-    await this.page.waitForLoadState('load');
-    await expect(this.getHeaderMyAccountBtn).toBeVisible();
+  async clickFormCloseBtn() {
+    await this.getCloseLoginBtn.click();
+    await expect(this.getForm).not.toBeVisible();
   }
 }
 export default Login;

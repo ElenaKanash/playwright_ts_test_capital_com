@@ -51,6 +51,7 @@ class TableTradingInstruments {
   }
 
   async clickrandomRow() {
+    await this.page.waitForSelector('[class*="row_link"]');
     const randomRow = await this.getRandomRow();
     this.rowHeadingText = await randomRow.innerText();
     console.log(`selected trading instrument: ${this.rowHeadingText}`);
@@ -71,6 +72,12 @@ class TableTradingInstruments {
     
     fs.writeFileSync(filePath, linksText);
     console.log(`Saved ${links.length} links to ${filePath}`);
+  }
+
+  async clickTableInstrumentLinks() {
+    await this.page.waitForSelector('[class*="row_link"]');
+    const randomRow = await this.getRandomRow();    
+    await randomRow.click();  
   }
 
   private async getRandomRow() {
