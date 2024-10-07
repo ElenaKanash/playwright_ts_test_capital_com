@@ -1,0 +1,4 @@
+selected trading instrument: MYCR
+selected trading instrument: NVDA
+selected trading instrument: 6098
+selected trading instrument: ZEPP

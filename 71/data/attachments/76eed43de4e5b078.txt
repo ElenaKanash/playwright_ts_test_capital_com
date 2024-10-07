@@ -1,0 +1,4 @@
+selected trading instrument: 8830
+selected trading instrument: AMD
+selected trading instrument: 9984
+selected trading instrument: DWSN
