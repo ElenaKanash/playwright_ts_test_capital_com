@@ -5,28 +5,24 @@ import { USER_DATA } from '../helpers/testData';
 
 class UserRoles {
   readonly page: Page;
-  [x: string]: any;
-  
+
+  readonly getHeaderLoginBtn: Locator;
+  readonly getLoginFormEmailField: Locator;
+  readonly getLoginFormPaswordField: Locator;
+  readonly getLoginFormContinueBtn: Locator;
+  readonly getModalWindowCloseBtn: Locator;
+  readonly getPlatformAccountBtn: Locator;
+  readonly getPlatformLogoutBtn: Locator;
+  readonly getHeaderMyAccountBtn: Locator;
+
   constructor(page: Page) {
     this.page = page;
-    //Header login locators  
+
     this.getHeaderLoginBtn = page.getByRole('button', { name: 'Log In' });
-    
-    this.getHeaderMyAccountBtn = page.getByRole('link', { name: 'My account' })
-    
-    //Login Form locators 
-    this.getForm = page.locator('[class*="modal_modal"]');
-    this.getHeadingForm = page.locator('div [class*="modal"] [class*="heading_h3"]');
-    this.getFormSignUpBtn = page.locator('[class*="modal_modal"]').getByRole('button', { name: 'Sign up' });
-    this.getFormEmailField = page.getByLabel('Email address');
-    
-    this.getFormPaswordField = page.getByLabel('Password');
-    
-    this.getFormForgotPaswordBtn = page.locator('[class*="modal_modal"]').getByRole('button', { name: 'Forgot password?' });
-    this.getFormLogMe7days = page.locator('label').filter({ hasText: 'Log me out after 7 days' });
-    this.getFormContinueBtn = page.getByRole('button', { name: 'Continue' });
-    
-    //Trading platform locators
+    this.getHeaderMyAccountBtn = page.getByRole('link', { name: 'My account' });
+    this.getLoginFormEmailField = page.getByLabel('Email address');
+    this.getLoginFormPaswordField = page.getByLabel('Password');
+    this.getLoginFormContinueBtn = page.getByRole('button', { name: 'Continue' });
     this.getPlatformAccountBtn = page.locator('menu-button.account');
     this.getPlatformLogoutBtn = page.getByRole('button', { name: 'Logout' });
     this.getModalWindowCloseBtn = page.locator('.modal .icon-square');
@@ -37,11 +33,10 @@ class UserRoles {
     await this.fillEmailField();
     await this.fillPasswordField();
     await this.clickFormContinueBtn();
-    await this.checkNavigationToPlatform();           
+    await this.checkNavigationToPlatform();
     await this.closePlatformModalWindow();
-    //await this.page.goBack();    
-    await this.openMainPageFCA();     
-    await this.checkMyAccountButton();    
+    await this.openMainPageFCA();
+    await this.checkMyAccountButton();
   }
 
   async unAutorizedUser() {
@@ -52,48 +47,59 @@ class UserRoles {
     await this.checkNavigationToPlatform();
     await this.closePlatformModalWindow();
     await this.clickPlatformAccountBtn();
-    await this.clickPlatformLogoutBtn();    
+    await this.clickPlatformLogoutBtn();
     await this.page.waitForLoadState('networkidle');
     await this.openMainPageFCA();
     await this.checkHeaderLoginBtn();
   }
+
   async clickHeaderLoginBtn() {
     await this.getHeaderLoginBtn.click();
   }
+
   async fillEmailField() {
-    await this.getFormEmailField.fill(USER_DATA.email);
+    await this.getLoginFormEmailField.fill(USER_DATA.email);
   }
+
   async fillPasswordField() {
-    await this.getFormPaswordField.fill(USER_DATA.password);
+    await this.getLoginFormPaswordField.fill(USER_DATA.password);
   }
+
   async clickFormContinueBtn() {
-    await this.getFormContinueBtn.click();
+    await this.getLoginFormContinueBtn.click();
   }
-  async checkNavigationToPlatform() {  
+
+  async checkNavigationToPlatform() {
     await this.page.waitForLoadState('networkidle');
     const tradingPlatformTitle = 'Trading Platform | Capital.com'
     await expect(this.page).toHaveTitle(tradingPlatformTitle);
   }
+
   async closePlatformModalWindow() {
     await this.getModalWindowCloseBtn.click();
   }
+
   async clickPlatformAccountBtn() {
     await this.getPlatformAccountBtn.click();
   }
+
   async clickPlatformLogoutBtn() {
     await this.getPlatformLogoutBtn.click();
   }
+
   async openMainPageFCA() {
     await this.page.goto(FCA_URL.FCABasePageUrl);
   }
+
   async checkHeaderLoginBtn() {
     await expect(this.getHeaderLoginBtn).toBeVisible();
   }
-  async checkMyAccountButton() {    
-    await this.page.waitForLoadState('load');  
-    await expect(this.getHeaderMyAccountBtn).toBeVisible();     
+
+  async checkMyAccountButton() {
+    await this.page.waitForLoadState('load');
+    await expect(this.getHeaderMyAccountBtn).toBeVisible();
   }
-  
+
 }
 
 export default UserRoles;
