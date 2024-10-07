@@ -1,0 +1,4 @@
+selected trading instrument: 6506
+selected trading instrument: META
+selected trading instrument: 9983
+selected trading instrument: ERAau

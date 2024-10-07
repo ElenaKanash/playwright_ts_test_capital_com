@@ -1,0 +1,4 @@
+selected trading instrument: MYCR
+selected trading instrument: SMCI
+selected trading instrument: 4063
+selected trading instrument: BOXL
