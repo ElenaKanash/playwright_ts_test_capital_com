@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import HomePage from '../pages/homePage';
 import Header from '../pages/headerPage';
-import Login from '../pages/loginPage';
 import {
   MarkertDiscoverBlockCreateAccountButton,
   MarkertDiscoverBlockTryDemoButton,
@@ -10,6 +9,7 @@ import {
 } from '../pages/elements/marketsSectionButtons';
 import { Assertions } from '../pages/assertionsForTests';
 import TableTradingInstruments from './../pages/elements/tableTradingInstruments';
+import UserRoles from '../pages/userRoles';
 
 const license = 'FCA';
 const language = 'EN';
@@ -86,12 +86,13 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
 
   test.describe('US_01.02!00_UnAuth Role', () => {
     test.beforeEach(async ({ page }) => {
-      const login = new Login(page);
+      const userRole = new UserRoles(page);
       const header = new Header(page);
 
-      await login.unAutorizedUser();
+      await userRole.unAutorizedUser();
       await header.hoverMarketsMenu();
       await header.clickMarketsSharesMenuItem();
+      await page.waitForLoadState('networkidle');
     });
 
     test('TC_01.02!00_101_UnAuth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
@@ -150,12 +151,13 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
 
   test.describe('US_01.02!00_Auth Role', () => {
     test.beforeEach(async ({ page }) => {
-      const login = new Login(page);
+      const userRole = new UserRoles(page);
       const header = new Header(page);
 
-      await login.autorizedUser();
+      await userRole.autorizedUser();
       await header.hoverMarketsMenu();
       await header.clickMarketsSharesMenuItem();
+      await page.waitForLoadState('networkidle');
     });
 
     test('TC_01.02!00_101_Auth | Markets > Menu item [Shares] > Click button [Sign up] in the block "Shares trading"', async ({
