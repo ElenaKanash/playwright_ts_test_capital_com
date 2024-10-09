@@ -1,0 +1,4 @@
+selected trading instrument: 7974
+selected trading instrument: SMCI
+selected trading instrument: 6098
+selected trading instrument: SOS
