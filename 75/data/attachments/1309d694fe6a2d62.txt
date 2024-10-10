@@ -1,0 +1,4 @@
+selected trading instrument: 5401
+selected trading instrument: AMZN
+selected trading instrument: 4568
+selected trading instrument: SUNW
