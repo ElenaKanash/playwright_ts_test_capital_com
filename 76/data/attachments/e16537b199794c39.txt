@@ -1,0 +1,4 @@
+selected trading instrument: 6954
+selected trading instrument: TSLA
+selected trading instrument: 5108
+selected trading instrument: SUNW
