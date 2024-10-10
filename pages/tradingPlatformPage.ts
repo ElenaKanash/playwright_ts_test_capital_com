@@ -33,6 +33,7 @@ class TradingPlatform {
   }
 
   async veryfyPlatformTitle() {
+    await this.page.waitForLoadState('networkidle');
     await expect(this.page).toHaveTitle(tradingPlatformTitle);
   }
 

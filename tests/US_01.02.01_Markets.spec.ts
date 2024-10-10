@@ -203,7 +203,7 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
     });
 
     test('TC_01.02!01_106_UnAuth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Sell]', async ({
-      page,
+      page, unAutorizedUserRole
     }) => {
       const header = new Header(page);
       const tableTradingInstruments = new TableTradingInstruments(page);
@@ -296,7 +296,7 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
     });
 
     test('TC_01.02!01_105_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [View detailed chart] on the widget “Trading instrument', async ({
-      page,
+      page, autorizedUserRole
     }) => {
       const header = new Header(page);
       const tableTradingInstruments = new TableTradingInstruments(page);
@@ -311,7 +311,7 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
     });
 
     test('TC_01.02!01_106_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Sell]', async ({
-      page,
+      page, autorizedUserRole
     }) => {
       const header = new Header(page);
       const tableTradingInstruments = new TableTradingInstruments(page);
@@ -326,7 +326,7 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
     });
 
     test('TC_01.02!01_107_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Buy]', async ({
-      page,
+      page, autorizedUserRole
     }) => {
       const header = new Header(page);
       const tableTradingInstruments = new TableTradingInstruments(page);
