@@ -231,79 +231,112 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
       pageOfTradingInstrument.clickBuyButton();
       await expect.loginFormIsOpened();
     });
-
-
   });
 
   test.describe('US_01.02!01_Auth Role', () => {
 
-    test.skip('TC_01.02!01_101_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Add to favourite]', async ({
-      page,
+    test('TC_01.02!01_101_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Add to favourite]', async ({
+      page, autorizedUserRole
     }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
+      await header.hoverMarketsMenu();
+      await header.clickMarketsSharesMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
       pageOfTradingInstrument.clickAddToFavouriteButton();
       await expect.tradingPlatformIsOpened();
     });
 
-    test.skip('TC_01.02!01_102_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', async ({
-      page,
+    test('TC_01.02!01_102_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', async ({
+      page, autorizedUserRole
     }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      await header.hoverMarketsMenu();
+      await header.clickMarketsSharesMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      pageOfTradingInstrument.clickLongPositionTooltip();
       await expect.tradingPlatformIsOpened();
     });
 
-    test.skip('TC_01.02!01_103_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Hover over tooltip "Short position overnight fee" --> Click button [Go to platform]', async ({
-      page,
+    test('TC_01.02!01_103_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Hover over tooltip "Short position overnight fee" --> Click button [Go to platform]', async ({
+      page, autorizedUserRole
     }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      await header.hoverMarketsMenu();
+      await header.clickMarketsSharesMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      pageOfTradingInstrument.clickShortPositionTooltip();
       await expect.tradingPlatformIsOpened();
     });
 
-    test.skip('TC_01.02!01_104_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Notification] on the widget “Trading instrument', async ({
-      page,
+    test('TC_01.02!01_104_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Notification] on the widget “Trading instrument', async ({
+      page, autorizedUserRole
     }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      await header.hoverMarketsMenu();
+      await header.clickMarketsSharesMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      pageOfTradingInstrument.clickNotificationBellButton();
       await expect.tradingPlatformIsOpened();
     });
 
-    test.skip('TC_01.02!01_105_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [View detailed chart] on the widget “Trading instrument', async ({
+    test('TC_01.02!01_105_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [View detailed chart] on the widget “Trading instrument', async ({
       page,
     }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      await header.hoverMarketsMenu();
+      await header.clickMarketsSharesMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      pageOfTradingInstrument.clickViewDetailedCharButton();
       await expect.tradingPlatformIsOpened();
     });
 
-    test.skip('TC_01.02!01_106_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Sell]', async ({
+    test('TC_01.02!01_106_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Sell]', async ({
       page,
     }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      await header.hoverMarketsMenu();
+      await header.clickMarketsSharesMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      pageOfTradingInstrument.clickSellButton();
       await expect.tradingPlatformIsOpened();
     });
 
-    test.skip('TC_01.02!01_107_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Buy]', async ({
+    test('TC_01.02!01_107_Auth | Markets > Menu [Markets] > Menu item [Shares] > Page of "Shares" trading instrument > Click button [Buy]', async ({
       page,
     }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
       const pageOfTradingInstrument = new PageOfTradingInstrument(page);
       const expect = new Assertions(page);
 
-      pageOfTradingInstrument
+      await header.hoverMarketsMenu();
+      await header.clickMarketsSharesMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      pageOfTradingInstrument.clickBuyButton();
       await expect.tradingPlatformIsOpened();
     });
 
