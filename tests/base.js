@@ -11,6 +11,16 @@ export const test = base.extend({
     },
   { scope: "test" },
   ],
+
+  autorizedUserRole: [
+    async ({ page }, use) => {
+      const userRole = new UserRoles(page);
+      await userRole.autorizedUser();
+
+      await use("")
+    },
+  { scope: "test" },
+  ],
 })
 
 
