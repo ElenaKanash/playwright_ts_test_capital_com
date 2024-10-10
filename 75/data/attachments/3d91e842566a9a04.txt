@@ -1,0 +1,3 @@
+selected trading instrument: 7012
+selected trading instrument: 6701
+selected trading instrument: 1605

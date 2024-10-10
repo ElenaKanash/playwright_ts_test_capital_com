@@ -1,0 +1,4 @@
+selected trading instrument: 9613
+selected trading instrument: NIO
+selected trading instrument: 4063
+selected trading instrument: ERAau
