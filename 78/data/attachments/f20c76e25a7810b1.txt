@@ -1,0 +1,4 @@
+selected trading instrument: 9984
+selected trading instrument: SMCI
+selected trading instrument: LISP
+selected trading instrument: SALM

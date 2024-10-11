@@ -1,0 +1,4 @@
+selected trading instrument: 9433
+selected trading instrument: NVDA
+selected trading instrument: 5108
+selected trading instrument: VAR1
