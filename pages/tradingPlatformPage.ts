@@ -15,24 +15,26 @@ class TradingPlatform {
     this.getPlatformAccountBtn = page.locator('menu-button.account');
   }
 
-  async verifyTradingPlatform() {
-    await this.page.waitForLoadState('load');
-    await this.veryfyPlatformTitle();
+  async verifyTradingPlatform() {    
+    await this.page.waitForLoadState('networkidle');
     await this.verifyPlatformLogo();
+    await this.veryfyPlatformTitle();
+    
   }
 
   async verifyTradingPlatformDemoMode() {
-    await this.page.waitForLoadState('load');
-    await this.veryfyPlatformTitle();
+    await this.page.waitForLoadState('networkidle');
     await this.verifyPlatformLogo();
+    await this.veryfyPlatformTitle();    
     await this.verifyTradingPlatformDemoAccountBtn();
   }
 
-  async verifyPlatformLogo() {
-    await expect(this.getPlatformLogo).toBeVisible({ timeout: 10000 });
+  async verifyPlatformLogo() {    
+    await expect(this.getPlatformLogo).toBeVisible();
   }
 
   async veryfyPlatformTitle() {
+   
     await expect(this.page).toHaveTitle(tradingPlatformTitle);
   }
 
