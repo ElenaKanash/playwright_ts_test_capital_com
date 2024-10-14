@@ -1,0 +1,4 @@
+selected trading instrument: 6701
+selected trading instrument: SMCI
+selected trading instrument: 8411
+selected trading instrument: SUNW
