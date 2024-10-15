@@ -96,7 +96,7 @@ test.describe(`US_01.00!00 | Menu Markets > Menu section [Markets] , ${license} 
 
       await header.hoverMarketsMenu();
       await header.clickMarketsMenuSectionTitle();
-      await markets.clickWhyChooseCapitalComCreateAccountBtn();
+      await markets.clickWhyChooseCapitalBlockCreateAccountBtn();
       await expect.signUpFormIsOpened();
     });
 
@@ -107,7 +107,7 @@ test.describe(`US_01.00!00 | Menu Markets > Menu section [Markets] , ${license} 
 
       await header.hoverMarketsMenu();
       await header.clickMarketsMenuSectionTitle();
-      await markets.clickWhyChooseCapitalComCreateAccountBtn();
+      await markets.clickWhyChooseCapitalBlockCreateAccountBtn();
       await expect.signUpFormIsOpened();
     });
 
@@ -118,7 +118,7 @@ test.describe(`US_01.00!00 | Menu Markets > Menu section [Markets] , ${license} 
 
       await header.hoverMarketsMenu();
       await header.clickMarketsMenuSectionTitle();
-      await markets.clickWhyChooseCapitalComCreateAccountBtn();
+      await markets.clickWhyChooseCapitalBlockCreateAccountBtn();
       await expect.tradingPlatformIsOpened();
     });
   });

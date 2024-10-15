@@ -4,7 +4,7 @@ class MarketsPage {
   readonly page: Page;
   readonly getAccessBlockCreateAccountBtn: Locator;
   readonly getAccessBlockTryDemoAccountBtn: Locator;
-  readonly getWhyChooseCapitalComCreateAccountBtn: Locator;
+  readonly getWhyChooseCapitalBlockCreateAccountBtn: Locator;
   //readonly : Locator; 
 
   constructor(page: Page) {
@@ -12,7 +12,7 @@ class MarketsPage {
 
     this.getAccessBlockCreateAccountBtn = page.locator('#bannerFullScreen').getByRole('button', { name: 'Create account' });
     this.getAccessBlockTryDemoAccountBtn = page.locator('#bannerFullScreen').getByRole('button', { name: 'Try demo account' });
-    this.getWhyChooseCapitalComCreateAccountBtn = page.getByRole('button', { name: 'Create account' }).nth(1)
+    this.getWhyChooseCapitalBlockCreateAccountBtn = page.getByRole('button', { name: 'Create account' }).nth(1)
     //getByRole('button', { name: 'Create account' }).nth(1)
   }
 
@@ -24,8 +24,8 @@ class MarketsPage {
     await this.getAccessBlockTryDemoAccountBtn.click();
   }
 
-  async clickWhyChooseCapitalComCreateAccountBtn() {
-    await this.getWhyChooseCapitalComCreateAccountBtn.click()
+  async clickWhyChooseCapitalBlockCreateAccountBtn() {
+    await this.getWhyChooseCapitalBlockCreateAccountBtn.click()
   }
 }
 export default MarketsPage;
