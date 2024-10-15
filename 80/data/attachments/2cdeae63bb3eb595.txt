@@ -1,0 +1,4 @@
+selected trading instrument: 9433
+selected trading instrument: TSLA
+selected trading instrument: 8411
+selected trading instrument: OLB

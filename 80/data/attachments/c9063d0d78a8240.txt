@@ -1,0 +1,4 @@
+selected trading instrument: 4063
+selected trading instrument: COIN
+selected trading instrument: 9983
+selected trading instrument: CVNau
