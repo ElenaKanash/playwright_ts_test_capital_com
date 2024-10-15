@@ -1,0 +1,4 @@
+selected trading instrument: 6586
+selected trading instrument: META
+selected trading instrument: 6361
+selected trading instrument: SOS
