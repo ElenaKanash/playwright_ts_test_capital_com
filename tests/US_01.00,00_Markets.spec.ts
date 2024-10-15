@@ -86,4 +86,41 @@ test.describe(`US_01.00!00 | Menu Markets > Menu section [Markets] , ${license} 
       await expect.tradingPlatformDemoModeIsOpened();
     });
   });
+
+  test.describe('TC_01.00!00_103 | Markets > Menu section [Markets] > Click button [Create account] in the block "Why choose Capital.com for your trading?"', () => {
+
+    test('TC_01.00!00_103_UnReg', async ({ page }) => {
+      const header = new Header(page);
+      const markets = new MarketsPage(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsMenuSectionTitle();
+      await markets.clickWhyChooseCapitalComCreateAccountBtn();
+      await expect.signUpFormIsOpened();
+    });
+
+    test('TC_01.00!00_103_UnAuth', async ({ page, unAutorizedUserRole }) => {
+      const header = new Header(page);
+      const markets = new MarketsPage(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsMenuSectionTitle();
+      await markets.clickWhyChooseCapitalComCreateAccountBtn();
+      await expect.signUpFormIsOpened();
+    });
+
+    test('TC_01.00!00_103_Auth', async ({ page, autorizedUserRole }) => {
+      const header = new Header(page);
+      const markets = new MarketsPage(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsMenuSectionTitle();
+      await markets.clickWhyChooseCapitalComCreateAccountBtn();
+      await expect.tradingPlatformIsOpened();
+    });
+  });
+
 });
