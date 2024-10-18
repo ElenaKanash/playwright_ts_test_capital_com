@@ -1,0 +1,4 @@
+selected trading instrument: 5803
+selected trading instrument: J225
+selected trading instrument: 9983
+selected trading instrument: HZNau

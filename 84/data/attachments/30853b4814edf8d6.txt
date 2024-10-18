@@ -1,0 +1,4 @@
+selected trading instrument: 7013
+selected trading instrument: DE40
+selected trading instrument: 9983
+selected trading instrument: HZNau
