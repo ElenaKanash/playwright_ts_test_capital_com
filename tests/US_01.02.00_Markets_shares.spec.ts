@@ -8,7 +8,7 @@ import {
   MarkertTradingBlockTryDemoButton,
 } from '../pages/elements/marketsSectionButtons';
 import { Assertions } from '../pages/assertionsForTests';
-import TableTradingInstruments from './../pages/elements/tableTradingInstruments';
+import TableTradingInstruments from '../pages/elements/tableTradingInstruments';
 import UserRoles from '../pages/userRoles';
 
 const license = 'FCA';
