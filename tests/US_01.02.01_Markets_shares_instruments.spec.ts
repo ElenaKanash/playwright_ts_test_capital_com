@@ -1,10 +1,10 @@
 import { expect } from '@playwright/test';
 import { test } from './base.js';
-import { Assertions } from '../pages/assertionsForTests';
-import HomePage from '../pages/homePage';
-import Header from '../pages/headerPage';
-import TableTradingInstruments from '../pages/elements/tableTradingInstruments';
-import { PageOfTradingInstrument } from '../pages/pageOfTradingInstrument';
+import { Assertions } from '../pages/assertionsForTests.js';
+import HomePage from '../pages/homePage.js';
+import Header from '../pages/headerPage.js';
+import TableTradingInstruments from '../pages/elements/tableTradingInstruments.js';
+import { PageOfTradingInstrument } from '../pages/pageOfTradingInstrument.js';
 
 const license = 'FCA';
 const language = 'EN';
