@@ -1,8 +1,9 @@
 import { test } from './base.js';
-import { Assertions } from '../pages/assertionsForTests';
-import HomePage from '../pages/homePage';
-import Header from '../pages/headerPage';
+import { Assertions } from '../pages/assertionsForTests.js';
+import HomePage from '../pages/homePage.js';
+import Header from '../pages/headerPage.js';
 import MarketsPage from '../pages/marketsPage.js';
+import TableTradingInstruments from '../pages/elements/tableTradingInstruments.js';
 
 const license = 'FCA';
 const language = 'EN';
@@ -156,6 +157,39 @@ test.describe(`US_01.00!00 | Menu Markets > Menu section [Markets] , ${license} 
       await header.clickMarketsMenuSectionTitle();
       await markets.clickWhyChooseCapitalBlockTryDemoBtn();
       await expect.tradingPlatformDemoModeIsOpened();
+    });
+  });
+
+  test.describe('TC_01.00!00_105 | Markets > Menu section [Markets] > Click button [Create account] in the block "Access thousands of global markets"', () => {
+
+    test('TC_01.00!00_105_UnReg', async ({ page }) => {
+      const header = new Header(page);      
+      const tableTradingInstruments = new TableTradingInstruments(page);;
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsMenuSectionTitle();
+      
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
+    });
+
+    test('TC_01.00!00_105_UnAuth', async ({ page, unAutorizedUserRole }) => {
+      const header = new Header(page);      
+      const tableTradingInstruments = new TableTradingInstruments(page);;
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsMenuSectionTitle();
+      
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
+    });
+
+    test('TC_01.00!00_105_Auth', async ({ page, autorizedUserRole }) => {
+      const header = new Header(page);      
+      const tableTradingInstruments = new TableTradingInstruments(page);;
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsMenuSectionTitle();
+      
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
     });
   });
 
