@@ -1,0 +1,3 @@
+selected trading instrument: 6098
+selected trading instrument: AMD
+selected trading instrument: LISP

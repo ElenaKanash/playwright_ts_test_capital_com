@@ -1,0 +1,4 @@
+selected trading instrument: 9984
+selected trading instrument: MSTR
+selected trading instrument: 6954
+selected trading instrument: SENau
