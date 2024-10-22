@@ -1,0 +1,4 @@
+selected trading instrument: 6367
+selected trading instrument: AMD
+selected trading instrument: NFLX
+selected trading instrument: KUD

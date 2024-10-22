@@ -1,0 +1,4 @@
+selected trading instrument: 5803
+selected trading instrument: US30
+selected trading instrument: NVR
+selected trading instrument: SENau
