@@ -1,0 +1,4 @@
+selected trading instrument: 6098
+selected trading instrument: Natural Gas
+selected trading instrument: 6861
+selected trading instrument: SOS

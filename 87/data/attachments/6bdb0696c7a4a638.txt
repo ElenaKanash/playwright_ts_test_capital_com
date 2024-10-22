@@ -1,0 +1,4 @@
+selected trading instrument: 6701
+selected trading instrument: Gold
+selected trading instrument: US100
+selected trading instrument: SALM

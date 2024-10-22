@@ -1,0 +1,2 @@
+selected trading instrument: 6701
+selected trading instrument: GBP/USD

@@ -1,0 +1,4 @@
+selected trading instrument: 7013
+selected trading instrument: US100
+selected trading instrument: 6861
+selected trading instrument: SVL

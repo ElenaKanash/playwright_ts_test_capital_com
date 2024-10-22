@@ -1,0 +1,3 @@
+selected trading instrument: Nickel
+selected trading instrument: US100
+selected trading instrument: MCU3

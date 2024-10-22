@@ -1,4 +1,0 @@
-selected trading instrument: REGN
-selected trading instrument: COIN
-selected trading instrument: 6762
-selected trading instrument: TNXP
