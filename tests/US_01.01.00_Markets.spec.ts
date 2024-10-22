@@ -25,7 +25,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
 
       await header.hoverMarketsMenu();
       await header.clickMarketsMenuSectionTitle();
-      await markets.clickAccessBlockCreateAccountBtn();
+      await markets.clickMarketsBlockCreateAccountBtn();
       await expect.signUpFormIsOpened();
     });
 
@@ -36,7 +36,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
 
       await header.hoverMarketsMenu();
       await header.clickMarketsMenuSectionTitle();
-      await markets.clickAccessBlockCreateAccountBtn();
+      await markets.clickMarketsBlockCreateAccountBtn();
       await expect.signUpFormIsOpened();
     });
 
@@ -47,7 +47,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
 
       await header.hoverMarketsMenu();
       await header.clickMarketsMenuSectionTitle();
-      await markets.clickAccessBlockCreateAccountBtn();
+      await markets.clickMarketsBlockCreateAccountBtn();
       await expect.tradingPlatformIsOpened();
     });
   });
@@ -61,7 +61,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
 
       await header.hoverMarketsMenu();
       await header.clickMarketsMenuSectionTitle();
-      await markets.clickAccessBlockTryDemoAccountBtn();
+      await markets.clickMarketsBlockTryDemoAccountBtn();
       await expect.signUpFormIsOpened();
     });
 
@@ -72,7 +72,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
 
       await header.hoverMarketsMenu();
       await header.clickMarketsMenuSectionTitle();
-      await markets.clickAccessBlockTryDemoAccountBtn();
+      await markets.clickMarketsBlockTryDemoAccountBtn();
       await expect.loginFormIsOpened();
     });
 
@@ -83,7 +83,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
 
       await header.hoverMarketsMenu();
       await header.clickMarketsMenuSectionTitle();
-      await markets.clickAccessBlockTryDemoAccountBtn();
+      await markets.clickMarketsBlockTryDemoAccountBtn();
       await expect.tradingPlatformDemoModeIsOpened();
     });
   });
