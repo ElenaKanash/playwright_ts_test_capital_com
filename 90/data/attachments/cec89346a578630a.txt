@@ -1,0 +1,2 @@
+selected trading instrument: NVR
+selected trading instrument: Oil - Crude

@@ -1,0 +1,4 @@
+selected trading instrument: NVR
+selected trading instrument: Silver
+selected trading instrument: 5714
+selected trading instrument: SVL

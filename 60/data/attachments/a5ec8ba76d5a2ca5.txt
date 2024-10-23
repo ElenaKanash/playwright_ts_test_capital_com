@@ -1,4 +1,0 @@
-selected trading instrument: 8253
-selected trading instrument: SOXL
-selected trading instrument: 6701
-selected trading instrument: QLGN

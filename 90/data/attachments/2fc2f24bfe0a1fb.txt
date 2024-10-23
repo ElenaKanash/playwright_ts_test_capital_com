@@ -1,0 +1,4 @@
+selected trading instrument: 7012
+selected trading instrument: AMZN
+selected trading instrument: GIVN
+selected trading instrument: ERAau
