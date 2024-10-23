@@ -48,6 +48,7 @@ class MarketsPage {
 
   async clickTradingBlockTryDemoBtn() {
     if (this.getTradingBlockTryDemoBtn) {
+      await this.getTradingBlockTryDemoBtn.waitFor({ state: 'attached', timeout: 5000 })
       await this.getTradingBlockTryDemoBtn.click();
     } else {
       throw new Error(
