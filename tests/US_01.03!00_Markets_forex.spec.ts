@@ -79,7 +79,7 @@ test.describe(`US_01.03!00 | Markets > Menu item [Forex], ${license} license, ${
       await header.clickMarketsForexMenuItem();
       await markets.clickTradingBlockTryDemoBtn();
 
-      await expect.signUpFormIsOpened();
+      await expect.loginFormIsOpened();
     });
 
     test('TC_01.03!00_102_Auth | Markets > Menu item [Forex] > Click button [Try Demo] in the block "Forex trading"', async ({ page, autorizedUserRole }) => {
@@ -91,10 +91,47 @@ test.describe(`US_01.03!00 | Markets > Menu item [Forex], ${license} license, ${
       await header.clickMarketsForexMenuItem();
       await markets.clickTradingBlockTryDemoBtn();
 
-      await expect.tradingPlatformIsOpened();
+      await expect.tradingPlatformDemoModeIsOpened();
     });
   });
 
-  
+  test.describe('TC_01.03!00_103 | Markets > Menu item [Forex] > Click button [Create account] in the block "Discover trading excellence with Capital.com"', () => {
+
+    test('TC_01.03!00_103_UnReg | Markets > Menu item [Forex] > Click button [Create account] in the block "Discover trading excellence with Capital.com"', async ({ page }) => {
+      const header = new Header(page);
+      const markets = new MarketsPage(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await markets.clickDiscoverTradingBlockCreateAccountBtn();
+
+      await expect.signUpFormIsOpened();
+    });
+
+    test('TC_01.03!00_103_UnAuth | Markets > Menu item [Forex] > Click button [Create account] in the block "Discover trading excellence with Capital.com"', async ({ page, unAutorizedUserRole }) => {
+      const header = new Header(page);
+      const markets = new MarketsPage(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await markets.clickDiscoverTradingBlockCreateAccountBtn();
+
+      await expect.signUpFormIsOpened();
+    });
+
+    test('TC_01.03!00_103_Auth | Markets > Menu item [Forex] > Click button [Create account] in the block "Discover trading excellence with Capital.com"', async ({ page, autorizedUserRole }) => {
+      const header = new Header(page);
+      const markets = new MarketsPage(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await markets.clickDiscoverTradingBlockCreateAccountBtn();
+
+      await expect.tradingPlatformIsOpened();
+    });
+  });
 
 });
