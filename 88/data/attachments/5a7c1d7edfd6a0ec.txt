@@ -1,0 +1,4 @@
+selected trading instrument: 7012
+selected trading instrument: UK100
+selected trading instrument: 6902
+selected trading instrument: ERAau

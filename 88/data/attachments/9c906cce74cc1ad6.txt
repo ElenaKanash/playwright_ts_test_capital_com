@@ -1,0 +1,4 @@
+selected trading instrument: 7013
+selected trading instrument: NVDA
+selected trading instrument: 7203
+selected trading instrument: SOS

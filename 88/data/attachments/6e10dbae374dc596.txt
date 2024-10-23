@@ -1,0 +1,4 @@
+selected trading instrument: 6861
+selected trading instrument: AAPL
+selected trading instrument: 6902
+selected trading instrument: ERAau
