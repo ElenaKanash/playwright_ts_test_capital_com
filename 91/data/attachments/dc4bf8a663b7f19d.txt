@@ -1,0 +1,2 @@
+selected trading instrument: J225
+selected trading instrument: Oil - Crude

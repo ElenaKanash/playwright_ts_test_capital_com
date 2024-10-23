@@ -1,0 +1,4 @@
+selected trading instrument: 6367
+selected trading instrument: US100
+selected trading instrument: 5714
+selected trading instrument: 2914

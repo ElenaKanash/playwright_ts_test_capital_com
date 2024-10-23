@@ -1,2 +1,0 @@
-selected trading instrument: NVDA
-123

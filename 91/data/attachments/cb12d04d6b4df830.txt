@@ -1,0 +1,4 @@
+selected trading instrument: 6861
+selected trading instrument: DJT
+selected trading instrument: 7974
+selected trading instrument: SOS
