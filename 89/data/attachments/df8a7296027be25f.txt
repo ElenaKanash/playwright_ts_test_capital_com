@@ -1,0 +1,4 @@
+selected trading instrument: NVR
+selected trading instrument: DJT
+selected trading instrument: 7267
+selected trading instrument: AHG

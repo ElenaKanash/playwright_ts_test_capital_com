@@ -1,0 +1,4 @@
+selected trading instrument: Nickel
+selected trading instrument: Silver
+selected trading instrument: US30
+selected trading instrument: AHG

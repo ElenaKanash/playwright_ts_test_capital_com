@@ -1,4 +1,0 @@
-selected trading instrument: 7731
-selected trading instrument: SMCI
-selected trading instrument: LISP
-selected trading instrument: SENau

@@ -1,0 +1,4 @@
+selected trading instrument: 4452
+selected trading instrument: AMD
+selected trading instrument: 5713
+selected trading instrument: SOS

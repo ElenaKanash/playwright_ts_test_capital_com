@@ -1,0 +1,4 @@
+selected trading instrument: NVR
+selected trading instrument: AAPL
+selected trading instrument: 7203
+selected trading instrument: BOXL

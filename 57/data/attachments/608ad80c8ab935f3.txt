@@ -1,4 +1,0 @@
-selected trading instrument: ALNY
-selected trading instrument: GME
-selected trading instrument: NVR
-selected trading instrument: ZEPP
