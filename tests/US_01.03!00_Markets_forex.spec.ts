@@ -54,6 +54,47 @@ test.describe(`US_01.03!00 | Markets > Menu item [Forex], ${license} license, ${
 
       await expect.tradingPlatformIsOpened();
     });
-  })
+  });
+
+  test.describe('TC_01.03!00_102 | Markets > Menu item [Forex] > Click button [Try Demo] in the block "Forex trading"', () => {
+
+    test('TC_01.03!00_102_UnReg | Markets > Menu item [Forex] > Click button [Try Demo] in the block "Forex trading"', async ({ page }) => {
+      const header = new Header(page);
+      const markets = new MarketsPage(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await markets.clickTradingBlockTryDemoBtn();
+
+      await expect.signUpFormIsOpened();
+    });
+
+    test('TC_01.03!00_102_UnAuth | Markets > Menu item [Forex] > Click button [Try Demo] in the block "Forex trading"', async ({ page, unAutorizedUserRole }) => {
+      const header = new Header(page);
+      const markets = new MarketsPage(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await markets.clickTradingBlockTryDemoBtn();
+
+      await expect.signUpFormIsOpened();
+    });
+
+    test('TC_01.03!00_102_Auth | Markets > Menu item [Forex] > Click button [Try Demo] in the block "Forex trading"', async ({ page, autorizedUserRole }) => {
+      const header = new Header(page);
+      const markets = new MarketsPage(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await markets.clickTradingBlockTryDemoBtn();
+
+      await expect.tradingPlatformIsOpened();
+    });
+  });
+
+  
 
 });
