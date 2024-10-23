@@ -7,8 +7,12 @@ class MarketsPage {
   readonly getWhyChooseCapitalBlockCreateAccountBtn: Locator;
   readonly getWhyChooseCapitalBlockTryDemoBtn: Locator;
   readonly getTradingBlockCreateAccountBtn: Locator;
-  readonly getTradingBlockTryDemoBtn: Locator;
+  //readonly getTradingBlockTryDemoBtn: Locator;
   readonly getDiscoverTradingBlockCreateAccountBtn: Locator;
+  getTradingBlockTryDemoBtn(): Locator {
+    return this.page.locator('#bannerFullScreen').getByRole('button', { name: 'Try demo' });
+  }
+
   //readonly : Locator; 
 
   constructor(page: Page) {
@@ -17,7 +21,7 @@ class MarketsPage {
     this.getMarketsBlockCreateAccountBtn = page.locator('#bannerFullScreen').getByRole('button', { name: 'Create account' });
     this.getMarketsBlockTryDemoAccountBtn = page.locator('#bannerFullScreen').getByRole('button', { name: 'Try demo account' });
     this.getTradingBlockCreateAccountBtn = page.locator('#bannerFullScreen').getByRole('button', { name: 'Create account' });
-    this.getTradingBlockTryDemoBtn = page.locator('#bannerFullScreen').getByRole('button', { name: 'Try demo' });
+    //this.getTradingBlockTryDemoBtn = page.locator('#bannerFullScreen').getByRole('button', { name: 'Try demo' });
     //blocks at the bottom of the page
     this.getWhyChooseCapitalBlockCreateAccountBtn = page.getByRole('button', { name: 'Create account' }).nth(1);
     this.getWhyChooseCapitalBlockTryDemoBtn = page.getByRole('button', { name: 'Try Demo', exact: true });
@@ -47,14 +51,23 @@ class MarketsPage {
   }
 
   async clickTradingBlockTryDemoBtn() {
-    if (this.getTradingBlockTryDemoBtn) {
-      await this.getTradingBlockTryDemoBtn.waitFor({ state: 'attached', timeout: 5000 })
+    /* if (this.getTradingBlockTryDemoBtn) {
+      await this.getTradingBlockTryDemoBtn.waitFor({ state: 'attached', timeout: 5000 });
       await this.getTradingBlockTryDemoBtn.click();
     } else {
       throw new Error(
         "Bug! Button [Try Demo] is absent"
       );
-    };
+    }; */
+    const button = this.getTradingBlockTryDemoBtn();
+    if (button) {
+      const isAttached = await button.isVisible();
+      if (isAttached) {
+        await button.click();
+      } else {
+        throw new Error('Bug! Button [Try Demo] is absent in the block "Forex trading"');
+      }
+    }
   };
 
   async clickDiscoverTradingBlockCreateAccountBtn() {
