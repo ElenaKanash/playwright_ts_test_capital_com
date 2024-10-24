@@ -134,4 +134,37 @@ test.describe(`US_01.03!00 | Markets > Menu item [Forex], ${license} license, ${
     });
   });
 
+  test.describe('TC_01.03!00_104 | Markets > Menu item [Forex] > Click random trading instruments on the Widget “Trading instrument”', () => {
+
+    test('TC_01.03!00_104_UnReg | Markets > Menu item [Forex] > Click random trading instruments on the Widget “Trading instrument”', async ({ page }) => {
+      const header = new Header(page);      
+      const tableTradingInstruments = new TableTradingInstruments(page);;
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
+    });
+
+    test('TC_01.03!00_104_UnAuth | Markets > Menu item [Forex] > Click random trading instruments on the Widget “Trading instrument”"', async ({ page, unAutorizedUserRole }) => {
+      const header = new Header(page);      
+      const tableTradingInstruments = new TableTradingInstruments(page);;
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
+    });
+
+    test('TC_01.03!00_104_Auth | Markets > Menu item [Forex] > Click random trading instruments on the Widget “Trading instrument”', async ({ page, autorizedUserRole }) => {
+      const header = new Header(page);      
+      const tableTradingInstruments = new TableTradingInstruments(page);;
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
+    });
+  });
+
 });
