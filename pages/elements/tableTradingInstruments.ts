@@ -9,14 +9,15 @@ class TableTradingInstruments {
   readonly getTableRow: Locator;
   readonly getPageInstrumentHeading: Locator;
   readonly getPageInstrunentLink: Locator;
-  rowHeadingText: string;
+  //rowHeadingText: string;
+  rowHeadingText: any;
 
   constructor(page: Page) {
     this.page = page;
     this.getOptionList = page.locator('[class*="dropdown_option"]');
     this.getSortDropdown = page.locator('#Sort');
-    this.getTableRow = page.locator('[data-type="markets_list_deep"]').locator('[class*="row_link"]');
-    //this.getPageInstrumentHeading = page.locator('[class*="heading_h1"]');
+    //this.getTableRow = page.locator('[data-type="markets_list_deep"]').locator('[class*="row_link"]');
+    this.getTableRow = page.locator('[data-type="markets_list_deep"]').locator('[class*= "row_marketDescription"]');    
     this.getPageInstrumentHeading = page.locator('h1');
     this.getPageInstrunentLink = page.locator('a[class*="row_link"]');
   }
@@ -53,14 +54,14 @@ class TableTradingInstruments {
   async clickrandomRow() {
     await this.page.waitForSelector('[class*="row_link"]');
     const randomRow = await this.getRandomRow();
-    this.rowHeadingText = await randomRow.innerText();
-    console.log(`selected trading instrument: ${this.rowHeadingText}`);
+    //console.log(randomRow)
+    this.rowHeadingText = await randomRow.innerText();    
+    //console.log(`selected trading instrument: ${this.rowHeadingText}`);
     await randomRow.click();
   }
 
   async saveAllTableInstrumentLinksToFile(page: any, locator: string, fileName: string) {
-    await page.waitForSelector('a[class*="row_link"]');
-    //expect(this.getPageInstrunentLink).toHaveCount(10)
+    await page.waitForSelector('a[class*="row_link"]');    
     
     const links = await this.getPageInstrunentLink.all();
     for (const link of links) {
