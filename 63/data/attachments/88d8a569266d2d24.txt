@@ -1,4 +1,0 @@
-selected trading instrument: LISP
-selected trading instrument: COIN
-selected trading instrument: 9983
-selected trading instrument: SALM
