@@ -160,9 +160,9 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
     });
   });
 
-  test.describe('TC_01.00!00_105 | Markets > Menu section [Markets] > Click button [Create account] in the block "Access thousands of global markets"', () => {
+  test.describe('TC_01.00!00_105 | Markets > Menu section [Markets] > Click random trading instruments on the Widget “Trading instrument”', () => {
 
-    test('TC_01.01!00_105_UnReg | Markets > Menu section [Markets] > Click button [Create account] in the block "Access thousands of global markets"', async ({ page }) => {
+    test('TC_01.01!00_105_UnReg | Markets > Menu section [Markets] > Click random trading instruments on the Widget “Trading instrument”', async ({ page }) => {
       const header = new Header(page);      
       const tableTradingInstruments = new TableTradingInstruments(page);;
 
@@ -172,7 +172,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
       await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
     });
 
-    test('TC_01.01!00_105_UnAuth | Markets > Menu section [Markets] > Click button [Create account] in the block "Access thousands of global markets"', async ({ page, unAutorizedUserRole }) => {
+    test('TC_01.01!00_105_UnAuth | Markets > Menu section [Markets] > Click random trading instruments on the Widget “Trading instrument”"', async ({ page, unAutorizedUserRole }) => {
       const header = new Header(page);      
       const tableTradingInstruments = new TableTradingInstruments(page);;
 
@@ -182,7 +182,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
       await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
     });
 
-    test('TC_01.01!00_105_Auth | Markets > Menu section [Markets] > Click button [Create account] in the block "Access thousands of global markets"', async ({ page, autorizedUserRole }) => {
+    test('TC_01.01!00_105_Auth | Markets > Menu section [Markets] > Click random trading instruments on the Widget “Trading instrument”', async ({ page, autorizedUserRole }) => {
       const header = new Header(page);      
       const tableTradingInstruments = new TableTradingInstruments(page);;
 
