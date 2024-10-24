@@ -1,0 +1,4 @@
+selected trading instrument: 4452
+selected trading instrument: TSLA
+selected trading instrument: 4902
+selected trading instrument: HZNau

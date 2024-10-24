@@ -1,0 +1,4 @@
+selected trading instrument: 6367
+selected trading instrument: US30
+selected trading instrument: 2502
+selected trading instrument: DBGI

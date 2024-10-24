@@ -1,0 +1,4 @@
+selected trading instrument: 2685
+selected trading instrument: Gold
+selected trading instrument: 5713
+selected trading instrument: CNSP
