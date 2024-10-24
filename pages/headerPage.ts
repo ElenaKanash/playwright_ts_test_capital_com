@@ -5,6 +5,7 @@ class Header {
   readonly getMarketsMenu: Locator;
   readonly getMarketsSharesMenuItem: Locator;
   readonly getMarketsMenuSectionTitle: Locator;
+  readonly getMarketsForexMenuItem: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -12,7 +13,8 @@ class Header {
     this.getMarketsMenu = page.locator('span').filter({ hasText: 'Markets' }).getByRole('link');
     //this.getMarketsSharesSubMenu = page.locator('header a[href="/en-gb/markets/shares"]');
     this.getMarketsSharesMenuItem = page.locator('header').getByRole('link', { name: 'Shares' });
-    this.getMarketsMenuSectionTitle = page.getByRole('link', { name: 'Markets', exact: true }).first() 
+    this.getMarketsMenuSectionTitle = page.getByRole('link', { name: 'Markets', exact: true }).first();
+    this.getMarketsForexMenuItem = page.locator('header').getByRole('link', { name: 'Forex' });
   }
 
   async hoverMarketsMenu() {
@@ -25,6 +27,10 @@ class Header {
 
   async clickMarketsMenuSectionTitle() {
     await this.getMarketsMenuSectionTitle.click();
+  }
+
+  async clickMarketsForexMenuItem() {
+    await this.getMarketsForexMenuItem.click();
   }
 }
 
