@@ -1,0 +1,10 @@
+/en-gb/markets/shares/tesla-share-price
+/en-gb/markets/shares/nvidia-share-price
+/en-gb/markets/shares/coinbase-global-inc-class-a-common-stock-share-price
+/en-gb/markets/shares/advanced-micro-devices-amd-share-price
+/en-gb/markets/shares/netflix-share-price
+/en-gb/markets/shares/apple-share-price
+/en-gb/markets/shares/digital-world-acquisition-corp-share-price
+/en-gb/markets/shares/super-micro-computer-inc-share-price
+/en-gb/markets/shares/amazon-share-price
+/en-gb/markets/shares/microstrategy-incorporated-share-price

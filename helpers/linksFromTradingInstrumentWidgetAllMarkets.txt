@@ -1,0 +1,10 @@
+/en-gb/markets/indices/japan-225-index
+/en-gb/markets/indices/germany-40-index
+/en-gb/markets/commodities/silver-price
+/en-gb/markets/forex/usd-jpy-rate
+/en-gb/markets/commodities/us-natural-gas-price
+/en-gb/markets/indices/uk-100-index
+/en-gb/markets/indices/us-wall-street-30-index
+/en-gb/markets/commodities/us-crude-oil-price
+/en-gb/markets/commodities/gold-price
+/en-gb/markets/indices/us-tech-100-index

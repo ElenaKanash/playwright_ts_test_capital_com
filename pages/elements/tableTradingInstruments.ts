@@ -60,7 +60,8 @@ class TableTradingInstruments {
     await randomRow.click();
   }
 
-  async saveAllTableInstrumentLinksToFile(page: any, locator: string, fileName: string) {
+  async saveAllTableInstrumentLinksToFile(page: any, locator: string, fileName: string, markets: string) {
+    //let markets: any;
     await page.waitForSelector('a[class*="row_link"]');    
     
     const links = await this.getPageInstrunentLink.all();
@@ -69,7 +70,7 @@ class TableTradingInstruments {
     }
     const linksText = (await Promise.all(links.map(async (link) => await link.getAttribute('href')))).join('\n');    
     //const filePath ='linksFromTradingInstrumentWidget.txt';
-    const filePath = './helpers/linksFromTradingInstrumentWidget.txt';
+    const filePath = `./helpers/linksFromTradingInstrumentWidget${markets}.txt`;
     
     fs.writeFileSync(filePath, linksText);
     console.log(`Saved ${links.length} links to ${filePath}`);
