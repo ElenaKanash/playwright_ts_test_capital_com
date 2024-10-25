@@ -193,4 +193,21 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
     });
   });
 
+  test.describe('TC_01.01!00_199_All Roles', () => {
+    test.beforeEach(async ({ page }) => {
+      const header = new Header(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsMenuSectionTitle();
+    });
+
+    test('TC_01.01!00_199 | Markets > Menu section [Markets] > Collecting links from widget “Trading instrument” ', async ({
+      page,
+    }) => {
+      const tableTradingInstruments = new TableTradingInstruments(page);
+
+      await tableTradingInstruments.saveAllTableInstrumentLinksToFile(page, 'a', 'links.txt');
+    });
+  });
+
 });
