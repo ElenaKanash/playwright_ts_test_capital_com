@@ -14,6 +14,7 @@ class UserRoles {
   readonly getPlatformAccountBtn: Locator;
   readonly getPlatformLogoutBtn: Locator;
   readonly getHeaderMyAccountBtn: Locator;
+  readonly getModalWindowLearnToTradeBtn: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -25,7 +26,8 @@ class UserRoles {
     this.getLoginFormContinueBtn = page.getByRole('button', { name: 'Continue' });
     this.getPlatformAccountBtn = page.locator('menu-button.account');
     this.getPlatformLogoutBtn = page.getByRole('button', { name: 'Logout' });
-    this.getModalWindowCloseBtn = page.locator('.modal .icon-square');
+    this.getModalWindowCloseBtn = page.locator('.modal .icon-square');    
+    this.getModalWindowLearnToTradeBtn = page.locator('button.solid.default.large .button-text')
   }
 
   async autorizedUser() {
@@ -34,7 +36,8 @@ class UserRoles {
     await this.fillPasswordField();
     await this.clickFormContinueBtn();
     await this.checkNavigationToPlatform();
-    await this.closePlatformModalWindow();
+    //await this.closePlatformModalWindow();
+    await this.closePlatformLearnToTradwWindow();
     await this.openMainPageFCA();
     await this.checkMyAccountButton();
   }
@@ -45,7 +48,8 @@ class UserRoles {
     await this.fillPasswordField();
     await this.clickFormContinueBtn();
     await this.checkNavigationToPlatform();
-    await this.closePlatformModalWindow();
+    //await this.closePlatformModalWindow();
+    await this.closePlatformLearnToTradwWindow();
     await this.clickPlatformAccountBtn();
     await this.clickPlatformLogoutBtn();
     await this.page.waitForLoadState('networkidle');
@@ -75,8 +79,14 @@ class UserRoles {
     await expect(this.page).toHaveTitle(tradingPlatformTitle);
   }
 
-  async closePlatformModalWindow() {
+  async closePlatformModalWindow() { 
+    await this.getModalWindowCloseBtn.isVisible()   
     await this.getModalWindowCloseBtn.click();
+  }
+
+  async closePlatformLearnToTradwWindow() {
+    await this.getModalWindowLearnToTradeBtn.isVisible()
+    await this.getModalWindowLearnToTradeBtn.click();
   }
 
   async clickPlatformAccountBtn() {
@@ -98,7 +108,7 @@ class UserRoles {
   async checkMyAccountButton() {
     await this.page.waitForLoadState('load');
     await expect(this.getHeaderMyAccountBtn).toBeVisible();
-  }
+  } 
 
 }
 
