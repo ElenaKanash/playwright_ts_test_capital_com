@@ -227,7 +227,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     }) => {
       const tableTradingInstruments = new TableTradingInstruments(page);
 
-      await tableTradingInstruments.saveAllTableInstrumentLinksToFile(page, 'a', 'links.txt');
+      await tableTradingInstruments.saveAllTableInstrumentLinksToFile(page, 'a', 'links.txt', 'Shares');
     });
   });
 });

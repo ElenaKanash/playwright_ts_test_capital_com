@@ -167,4 +167,21 @@ test.describe(`US_01.03!00 | Markets > Menu item [Forex], ${license} license, ${
     });
   });
 
+  test.describe('TC_01.03!00_199_All Roles', () => {
+    test.beforeEach(async ({ page }) => {
+      const header = new Header(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+    });
+
+    test('TC_01.03!00_199 | Markets > Menu item [Shares] > Collecting links from widget “Trading instrument” ', async ({
+      page,
+    }) => {
+      const tableTradingInstruments = new TableTradingInstruments(page);
+
+      await tableTradingInstruments.saveAllTableInstrumentLinksToFile(page, 'a', 'links.txt', 'Forex');
+    });
+  });
+
 });

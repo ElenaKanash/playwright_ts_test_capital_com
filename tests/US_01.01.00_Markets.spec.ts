@@ -206,7 +206,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
     }) => {
       const tableTradingInstruments = new TableTradingInstruments(page);
 
-      await tableTradingInstruments.saveAllTableInstrumentLinksToFile(page, 'a', 'links.txt');
+      await tableTradingInstruments.saveAllTableInstrumentLinksToFile(page, 'a', 'links.txt', 'AllMarkets');
     });
   });
 
