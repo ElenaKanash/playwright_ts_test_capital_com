@@ -1,4 +1,0 @@
-selected trading instrument: LISP
-selected trading instrument: SMCI
-selected trading instrument: 8031
-selected trading instrument: STEM

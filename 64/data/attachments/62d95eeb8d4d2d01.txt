@@ -1,4 +1,0 @@
-selected trading instrument: 4519
-selected trading instrument: GME
-selected trading instrument: NVR
-selected trading instrument: MULN
