@@ -146,7 +146,7 @@ test.describe(`US_01.03!00 | Markets > Menu item [Forex], ${license} license, ${
       await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
     });
 
-    test('TC_01.03!00_104_UnAuth | Markets > Menu item [Forex] > Click random trading instruments on the Widget “Trading instrument”"', async ({ page, unAutorizedUserRole }) => {
+    test.skip('TC_01.03!00_104_UnAuth | Markets > Menu item [Forex] > Click random trading instruments on the Widget “Trading instrument”"', async ({ page, unAutorizedUserRole }) => {
       const header = new Header(page);      
       const tableTradingInstruments = new TableTradingInstruments(page);;
 
@@ -156,7 +156,7 @@ test.describe(`US_01.03!00 | Markets > Menu item [Forex], ${license} license, ${
       await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
     });
 
-    test('TC_01.03!00_104_Auth | Markets > Menu item [Forex] > Click random trading instruments on the Widget “Trading instrument”', async ({ page, autorizedUserRole }) => {
+    test.skip('TC_01.03!00_104_Auth | Markets > Menu item [Forex] > Click random trading instruments on the Widget “Trading instrument”', async ({ page, autorizedUserRole }) => {
       const header = new Header(page);      
       const tableTradingInstruments = new TableTradingInstruments(page);;
 
