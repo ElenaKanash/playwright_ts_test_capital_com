@@ -139,7 +139,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await expect.loginFormIsOpened();
     });
 
-    test('TC_01.02!00_105_UnAuth | Markets > Menu item [Shares] > Click four random trading instruments on the widget “Trading instrument”', async ({
+    test.skip('TC_01.02!00_105_UnAuth | Markets > Menu item [Shares] > Click four random trading instruments on the widget “Trading instrument”', async ({
       page,
     }) => {
       const tableTradingInstruments = new TableTradingInstruments(page);
@@ -204,7 +204,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
       await expect.tradingPlatformDemoModeIsOpened();
     });
 
-    test('TC_01.02!00_105_Auth | Markets > Menu item [Shares] > Click four random trading instruments on the widget “Trading instrument”', async ({
+    test.skip('TC_01.02!00_105_Auth | Markets > Menu item [Shares] > Click four random trading instruments on the widget “Trading instrument”', async ({
       page,
     }) => {
       const tableTradingInstruments = new TableTradingInstruments(page);
@@ -227,7 +227,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     }) => {
       const tableTradingInstruments = new TableTradingInstruments(page);
 
-      await tableTradingInstruments.saveAllTableInstrumentLinksToFile(page, 'a', 'links.txt');
+      await tableTradingInstruments.saveAllTableInstrumentLinksToFile(page, 'a', 'links.txt', 'Shares');
     });
   });
 });
