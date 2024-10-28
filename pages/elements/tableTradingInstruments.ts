@@ -32,6 +32,7 @@ class TableTradingInstruments {
 
     for (let item of dropdownSortOoptions) {
       await this.clickSortDropdown();
+      await this.getOptionList.filter({ hasText: item }).focus();
       await this.getOptionList.filter({ hasText: item }).click();
       await this.page.waitForTimeout(1000);
       await this.clickrandomRow();
