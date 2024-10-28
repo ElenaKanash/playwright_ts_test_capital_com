@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from './base.js';
 import HomePage from '../pages/homePage';
 import Header from '../pages/headerPage';
 import {
@@ -19,6 +19,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
     const homePage = new HomePage(page);
 
     await homePage.openMainPageFCA();
+    await homePage.clickWelcomeBanner();
     await homePage.clickAcceptAllCookiesBtn();
   });
 
@@ -85,11 +86,11 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
   });
 
   test.describe('US_01.02!00_UnAuth Role', () => {
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach(async ({ page, unAutorizedUserRole }) => {
       const userRole = new UserRoles(page);
       const header = new Header(page);
 
-      await userRole.unAutorizedUser();
+     // await userRole.unAutorizedUser();
       await header.hoverMarketsMenu();
       await header.clickMarketsSharesMenuItem();
       await page.waitForLoadState('networkidle');
@@ -150,11 +151,11 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
   });
 
   test.describe('US_01.02!00_Auth Role', () => {
-    test.beforeEach(async ({ page }) => {
-      const userRole = new UserRoles(page);
+    test.beforeEach(async ({ page, autorizedUserRole }) => {
+     // const userRole = new UserRoles(page);
       const header = new Header(page);
 
-      await userRole.autorizedUser();
+     // await userRole.autorizedUser();
       await header.hoverMarketsMenu();
       await header.clickMarketsSharesMenuItem();
       await page.waitForLoadState('networkidle');
