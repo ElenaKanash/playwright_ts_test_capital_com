@@ -9,6 +9,7 @@ export class MarkertTradingBlockSignUpButton {
     this.getMarketsTradingBlockSignUpBtn = page.locator('button[data-type="fullscreen_banner_block_btn1_signup"]');
   }
   async clickMarkertTradingBlockSignUpButton() {
+    await this.getMarketsTradingBlockSignUpBtn.focus();
     await this.getMarketsTradingBlockSignUpBtn.click();
   }
 }
@@ -21,6 +22,7 @@ export class MarkertTradingBlockTryDemoButton {
     this.getMarketsTradingBlockTryDemoBtn = page.locator('[data-type="fullscreen_banner_block_btn2demo"]');
   }
   async clickMarkertTradingBlockTryDemoButton() {
+    await this.getMarketsTradingBlockTryDemoBtn.focus();
     await this.getMarketsTradingBlockTryDemoBtn.click();
   }
 }
@@ -33,6 +35,7 @@ export class MarkertDiscoverBlockCreateAccountButton {
     this.getMarkertDiscoverBlockCreateAccountBtn = page.locator('[data-type="tiles_w_img_btn1_signup"]');
   }
   async clickMarkertDiscoverBlockCreateAccountButton() {
+    await this.getMarkertDiscoverBlockCreateAccountBtn.focus();
     await this.getMarkertDiscoverBlockCreateAccountBtn.click();
   }
 }
@@ -44,6 +47,7 @@ export class MarkertDiscoverBlockTryDemoButton {
     this.getMarkertDiscoverBlockTryDemoBtn = page.locator('[data-type="tiles_w_img_btn2_demo"]');
   }
   async clickMarkertDiscoverBlockTryDemoButton() {
+    await this.getMarkertDiscoverBlockTryDemoBtn.focus();
     await this.getMarkertDiscoverBlockTryDemoBtn.click();
   }
 }
