@@ -14,6 +14,7 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
     const homePage = new HomePage(page);   
 
     await homePage.openMainPageFCA();
+    await homePage.clickWelcomeBanner();
     await homePage.clickAcceptAllCookiesBtn();    
   });
 
