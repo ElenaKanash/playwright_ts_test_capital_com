@@ -14,6 +14,7 @@ test.describe(`US_01.03!00 | Markets > Menu item [Forex], ${license} license, ${
     const homePage = new HomePage(page);
 
     await homePage.openMainPageFCA();
+    await homePage.clickWelcomeBanner();
     await homePage.clickAcceptAllCookiesBtn();
   });
 
