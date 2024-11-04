@@ -18,9 +18,9 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
   test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);
 
-    await homePage.openMainPageFCA();
-    await homePage.clickWelcomeBanner();
+    await homePage.openMainPageFCA();    
     await homePage.clickAcceptAllCookiesBtn();
+    await homePage.clickWelcomeBanner();
   });
 
   test.describe('US_01.02!00_UnReg Role', () => {
