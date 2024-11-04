@@ -13,9 +13,9 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
   test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);   
 
-    await homePage.openMainPageFCA();
-    await homePage.clickWelcomeBanner();
-    await homePage.clickAcceptAllCookiesBtn();    
+    await homePage.openMainPageFCA();    
+    await homePage.clickAcceptAllCookiesBtn(); 
+    await homePage.clickWelcomeBanner();   
   });
 
   test.describe('US_01.02!01_UnReg Role', () => {

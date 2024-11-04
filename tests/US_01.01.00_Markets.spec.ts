@@ -12,9 +12,9 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
   test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);
 
-    await homePage.openMainPageFCA();
-    await homePage.clickWelcomeBanner();
+    await homePage.openMainPageFCA();    
     await homePage.clickAcceptAllCookiesBtn();
+    await homePage.clickWelcomeBanner();
 
   });
 
