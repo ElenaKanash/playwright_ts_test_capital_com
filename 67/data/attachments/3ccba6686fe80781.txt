@@ -1,4 +1,0 @@
-selected trading instrument: 9984
-selected trading instrument: COIN
-selected trading instrument: 1925
-selected trading instrument: STEM
