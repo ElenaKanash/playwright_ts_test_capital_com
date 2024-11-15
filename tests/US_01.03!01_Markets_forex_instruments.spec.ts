@@ -18,7 +18,7 @@ test.describe(`US_01.03!01 | Menu [Markets] > Menu item [Forex] > Page of "Share
 
   });
 
-  test.describe('TC_01.03!01_101 | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', () => {
+  test.describe('TC_01.03!01_101 | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Click button [Add to favourite]', () => {
 
     test('TC_01.03!01_101_UnReg | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Click button [Add to favourite]', async ({ page }) => {
       const header = new Header(page);
@@ -148,6 +148,51 @@ test.describe(`US_01.03!01 | Menu [Markets] > Menu item [Forex] > Page of "Share
       await header.clickMarketsForexMenuItem();
       await tableTradingInstruments.clickTableInstrumentLinks();
       await pageOfTradingInstrument.clickShortPositionTooltip();
+      await expect.tradingPlatformIsOpened();
+    });
+
+  });
+
+  test.describe('TC_01.03!01_104 | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Widget “Trading instrument” > Click button [Notification]', () => {
+
+    test('TC_01.03!01_104_UnReg | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Widget “Trading instrument” > Click button [Notification] ', async ({ page }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
+      const pageOfTradingInstrument = new PageOfTradingInstrument(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      await pageOfTradingInstrument.clickNotificationBellButton();
+      await expect.signUpFormIsOpened();
+
+    });
+
+    test('TC_01.03!01_104_UnAuth | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Widget “Trading instrument” > Click button [Notification] ', async ({ page, unAutorizedUserRole }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
+      const pageOfTradingInstrument = new PageOfTradingInstrument(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      await pageOfTradingInstrument.clickNotificationBellButton();
+      await expect.loginFormIsOpened();
+
+    });
+
+    test('TC_01.03!01_104_Auth | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Widget “Trading instrument” > Click button [Notification] ', async ({ page, autorizedUserRole }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
+      const pageOfTradingInstrument = new PageOfTradingInstrument(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      await pageOfTradingInstrument.clickNotificationBellButton();
       await expect.tradingPlatformIsOpened();
     });
 
