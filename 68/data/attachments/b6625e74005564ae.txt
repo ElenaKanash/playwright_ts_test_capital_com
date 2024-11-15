@@ -1,4 +1,0 @@
-selected trading instrument: COKE
-selected trading instrument: GME
-selected trading instrument: 4519
-selected trading instrument: SENau
