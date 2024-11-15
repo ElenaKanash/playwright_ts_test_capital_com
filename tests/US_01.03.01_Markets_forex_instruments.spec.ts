@@ -18,7 +18,7 @@ test.describe(`US_01.03!01 | Menu [Markets] > Menu item [Forex] > Page of "Share
 
   });
 
-  test.describe('TC_01.03!01_101 | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Click button [Add to favourite]', () => {
+  test.describe('TC_01.03!01_101 | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', () => {
 
     test('TC_01.03!01_101_UnReg | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Click button [Add to favourite]', async ({ page }) => {
       const header = new Header(page);
@@ -62,4 +62,50 @@ test.describe(`US_01.03!01 | Menu [Markets] > Menu item [Forex] > Page of "Share
     });
 
   });
+
+  test.describe('TC_01.03!01_102 | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', () => {
+
+    test('TC_01.03!01_102_UnReg | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', async ({ page }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
+      const pageOfTradingInstrument = new PageOfTradingInstrument(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      await pageOfTradingInstrument.clickLongPositionTooltip();
+      await expect.signUpFormIsOpened();
+
+    });
+
+    test('TC_01.03!01_102_UnAuth | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', async ({ page, unAutorizedUserRole }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
+      const pageOfTradingInstrument = new PageOfTradingInstrument(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      await pageOfTradingInstrument.clickLongPositionTooltip();
+      await expect.loginFormIsOpened();
+
+    });
+
+    test('TC_01.03!01_102_Auth | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Hover over tooltip "Long position overnight fee" --> Click button [Go to platform]', async ({ page, autorizedUserRole }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
+      const pageOfTradingInstrument = new PageOfTradingInstrument(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      await pageOfTradingInstrument.clickLongPositionTooltip();
+      await expect.tradingPlatformIsOpened();
+    });
+
+  });
+
 });
