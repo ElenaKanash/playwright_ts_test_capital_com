@@ -243,4 +243,49 @@ test.describe(`US_01.03!01 | Menu [Markets] > Menu item [Forex] > Page of "Share
 
   });
 
+  test.describe('TC_01.03!01_106 | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Click button [Sell] on the widget “Trading instrument', () => {
+
+    test('TC_01.03!01_106_UnReg | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Click button [Sell] on the widget “Trading instrument', async ({ page }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
+      const pageOfTradingInstrument = new PageOfTradingInstrument(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      await pageOfTradingInstrument.clickSellButton();
+      await expect.signUpFormIsOpened();
+
+    });
+
+    test('TC_01.03!01_106_UnAuth | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Click button [Sell] on the widget “Trading instrument', async ({ page, unAutorizedUserRole }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
+      const pageOfTradingInstrument = new PageOfTradingInstrument(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      await pageOfTradingInstrument.clickSellButton();
+      await expect.loginFormIsOpened();
+
+    });
+
+    test('TC_01.03!01_106_Auth | Markets > Menu item [Forex] > Page of "Forex" trading instrument > Click button [Sell] on the widget “Trading instrument', async ({ page, autorizedUserRole }) => {
+      const header = new Header(page);
+      const tableTradingInstruments = new TableTradingInstruments(page);
+      const pageOfTradingInstrument = new PageOfTradingInstrument(page);
+      const expect = new Assertions(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsForexMenuItem();
+      await tableTradingInstruments.clickTableInstrumentLinks();
+      await pageOfTradingInstrument.clickSellButton();
+      await expect.tradingPlatformIsOpened();
+    });
+
+  });
+
 });
