@@ -1,4 +1,0 @@
-selected trading instrument: 4911
-selected trading instrument: NVDA
-selected trading instrument: 8802
-selected trading instrument: OLB

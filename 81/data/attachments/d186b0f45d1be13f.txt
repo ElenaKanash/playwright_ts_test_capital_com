@@ -1,4 +1,0 @@
-selected trading instrument: 4452
-selected trading instrument: META
-selected trading instrument: 9983
-selected trading instrument: ENTO

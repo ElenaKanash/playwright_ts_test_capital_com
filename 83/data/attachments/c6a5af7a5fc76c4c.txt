@@ -1,4 +1,0 @@
-selected trading instrument: 9984
-selected trading instrument: J225
-selected trading instrument: HSCE
-selected trading instrument: OLB

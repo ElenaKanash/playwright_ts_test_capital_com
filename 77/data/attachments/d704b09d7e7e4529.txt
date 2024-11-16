@@ -1,4 +1,0 @@
-selected trading instrument: 6954
-selected trading instrument: AAPL
-selected trading instrument: 4523
-selected trading instrument: WINT

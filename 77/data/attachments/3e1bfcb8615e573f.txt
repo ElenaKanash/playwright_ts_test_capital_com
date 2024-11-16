@@ -1,4 +1,0 @@
-selected trading instrument: NVR
-selected trading instrument: AAPL
-selected trading instrument: 7731
-selected trading instrument: ZEPP

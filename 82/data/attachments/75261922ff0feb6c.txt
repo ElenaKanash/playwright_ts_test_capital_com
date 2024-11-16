@@ -1,4 +1,0 @@
-selected trading instrument: 1605
-selected trading instrument: SMCI
-selected trading instrument: 6098
-selected trading instrument: SOS

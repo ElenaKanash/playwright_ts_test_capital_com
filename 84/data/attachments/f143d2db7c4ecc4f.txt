@@ -1,4 +1,0 @@
-selected trading instrument: 6701
-selected trading instrument: AMZN
-selected trading instrument: 6861
-selected trading instrument: JNUG

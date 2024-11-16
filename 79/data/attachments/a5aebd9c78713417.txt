@@ -1,4 +1,0 @@
-selected trading instrument: 9503
-selected trading instrument: BABA
-selected trading instrument: 4519
-selected trading instrument: SUNW

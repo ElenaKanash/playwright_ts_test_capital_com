@@ -1,4 +1,0 @@
-selected trading instrument: 7013
-selected trading instrument: US30
-selected trading instrument: US100
-selected trading instrument: OLB

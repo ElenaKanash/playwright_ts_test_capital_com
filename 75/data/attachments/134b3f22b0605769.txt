@@ -1,4 +1,0 @@
-selected trading instrument: 2768
-selected trading instrument: COIN
-selected trading instrument: 4911
-selected trading instrument: SALM

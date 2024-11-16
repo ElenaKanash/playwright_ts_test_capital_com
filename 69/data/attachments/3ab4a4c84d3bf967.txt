@@ -1,4 +1,0 @@
-selected trading instrument: 4911
-selected trading instrument: AMD
-selected trading instrument: 9984
-selected trading instrument: BUBau

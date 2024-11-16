@@ -1,4 +1,0 @@
-selected trading instrument: 6954
-selected trading instrument: NIO
-selected trading instrument: 7012
-selected trading instrument: OLB

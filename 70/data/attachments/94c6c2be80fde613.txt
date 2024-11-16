@@ -1,4 +1,0 @@
-selected trading instrument: SMCI
-selected trading instrument: SMCI
-selected trading instrument: 7013
-selected trading instrument: W
