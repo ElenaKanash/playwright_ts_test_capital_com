@@ -1,4 +1,0 @@
-selected trading instrument: 6701
-selected trading instrument: HK50
-selected trading instrument: CN50
-selected trading instrument: ERAau

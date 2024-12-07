@@ -1,4 +1,0 @@
-selected trading instrument: 6758
-selected trading instrument: AAPL
-selected trading instrument: 9983
-selected trading instrument: SOS
