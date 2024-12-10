@@ -1,4 +1,0 @@
-selected trading instrument: 2685
-selected trading instrument: NVDA
-selected trading instrument: 5803
-selected trading instrument: ERAau

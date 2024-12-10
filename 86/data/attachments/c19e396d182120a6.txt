@@ -1,4 +1,0 @@
-selected trading instrument: 7013
-selected trading instrument: MSTR
-selected trading instrument: 6954
-selected trading instrument: ERAau
