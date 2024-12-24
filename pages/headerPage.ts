@@ -6,6 +6,7 @@ class Header {
   readonly getMarketsSharesMenuItem: Locator;
   readonly getMarketsMenuSectionTitle: Locator;
   readonly getMarketsForexMenuItem: Locator;
+  readonly getMarketsIndicesMenuItem: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -15,6 +16,7 @@ class Header {
     this.getMarketsSharesMenuItem = page.locator('header').getByRole('link', { name: 'Shares' });
     this.getMarketsMenuSectionTitle = page.getByRole('link', { name: 'Markets', exact: true }).first();
     this.getMarketsForexMenuItem = page.locator('header').getByRole('link', { name: 'Forex' });
+    this.getMarketsIndicesMenuItem = page.locator('header').getByRole('link', { name: 'Indices' });
   }
 
   async hoverMarketsMenu() {
@@ -31,6 +33,10 @@ class Header {
 
   async clickMarketsForexMenuItem() {
     await this.getMarketsForexMenuItem.click();
+  }
+
+  async clickMarketsIndicesMenuItem() {
+    await this.getMarketsIndicesMenuItem.click();
   }
 }
 
