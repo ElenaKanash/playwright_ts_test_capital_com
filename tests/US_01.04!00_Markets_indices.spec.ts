@@ -94,5 +94,45 @@ test.describe(`US_01.04!00 | Markets > Menu item [Indices], ${license} license, 
 
       await expect.tradingPlatformDemoModeIsOpened();
     });
+
+    test.describe('TC_01.04!00_103 | Markets > Menu item [Indices] > Click button [Create account] in the block "Discover trading excellence with Capital.com"', () => {
+
+      test('TC_01.04!00_103_UnReg | Markets > Menu item [Indices] > Click button [Create account] in the block "Discover trading excellence with Capital.com"', async ({ page }) => {
+        const header = new Header(page);
+        const markets = new MarketsPage(page);
+        const expect = new Assertions(page);
+  
+        await header.hoverMarketsMenu();
+        await header.clickMarketsIndicesMenuItem();
+        await markets.clickDiscoverTradingBlockCreateAccountBtn();
+  
+        await expect.signUpFormIsOpened();
+      });
+  
+      test('TC_01.04!00_103_UnAuth | Markets > Menu item [Indices] > Click button [Create account] in the block "Discover trading excellence with Capital.com"', async ({ page, unAutorizedUserRole }) => {
+        const header = new Header(page);
+        const markets = new MarketsPage(page);
+        const expect = new Assertions(page);
+  
+        await header.hoverMarketsMenu();
+        await header.clickMarketsIndicesMenuItem();
+        await markets.clickDiscoverTradingBlockCreateAccountBtn();
+  
+        await expect.signUpFormIsOpened();
+      });
+  
+      test('TC_01.04!00_103_Auth | Markets > Menu item [Indices] > Click button [Create account] in the block "Discover trading excellence with Capital.com"', async ({ page, autorizedUserRole }) => {
+        const header = new Header(page);
+        const markets = new MarketsPage(page);
+        const expect = new Assertions(page);
+  
+        await header.hoverMarketsMenu();
+        await header.clickMarketsIndicesMenuItem();
+        await markets.clickDiscoverTradingBlockCreateAccountBtn();
+  
+        await expect.tradingPlatformIsOpened();
+      });
+    });
   });
+
 });
