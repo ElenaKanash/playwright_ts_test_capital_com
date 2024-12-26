@@ -37,6 +37,7 @@ class Header {
 
   async clickMarketsIndicesMenuItem() {
     await this.getMarketsIndicesMenuItem.click();
+    await this.page.waitForLoadState('networkidle');
   }
 }
 
