@@ -22,11 +22,17 @@ jobs:
       - name: Run Playwright tests
         continue-on-error: true
         run: npm run test:report
+
+      # Сжатие артефактов
+      - name: Compress Allure results
+        run: |
+          tar -czf allure-results.tar.gz allure-results
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-results
-          path: allure-results
+          path: allure-results.tar.gz
           retention-days: 7
         
       - name: Get Allure history
@@ -37,6 +43,10 @@ jobs:
           ref: gh-pages
           path: gh-pages
     
+      - name: Decompress Allure results
+        run: |
+          tar -xzf allure-results.tar.gz -C allure-results
+
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -47,11 +57,7 @@ jobs:
           allure_report: allure-report
           allure_history: allure-history
           keep_reports: 10
-
-      - name: Clean up old reports
-        run: |
-          rm -rf allure-history/*
-
+                
       - name: Deploy allure report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
@@ -59,6 +65,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
+
+Найти еще
 
 
 
