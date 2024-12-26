@@ -9,6 +9,7 @@ class MarketsPage {
   readonly getTradingBlockCreateAccountBtn: Locator;
   readonly getMarketsTradingBlockTryDemoBtn: Locator;
   readonly getDiscoverTradingBlockCreateAccountBtn: Locator;
+  readonly getDiscoverTradingBlockTryDemoBtn: Locator;
   getTradingBlockTryDemoBtn(): Locator {
     return this.page.locator('#bannerFullScreen').getByRole('button', { name: 'Try Demo' });
   }
@@ -26,8 +27,7 @@ class MarketsPage {
     this.getWhyChooseCapitalBlockCreateAccountBtn = page.getByRole('button', { name: 'Create account' }).nth(1);
     this.getWhyChooseCapitalBlockTryDemoBtn = page.getByRole('button', { name: 'Try Demo', exact: true });
     this.getDiscoverTradingBlockCreateAccountBtn = page.getByRole('button', { name: 'Create account' }).nth(1);
-
-
+    this.getDiscoverTradingBlockTryDemoBtn = page.getByRole('button', { name: 'Try Demo' }).nth(1);
   }
 
   async clickMarketsBlockCreateAccountBtn() {
@@ -76,6 +76,10 @@ class MarketsPage {
 
   async clickDiscoverTradingBlockCreateAccountBtn() {
     await this.getDiscoverTradingBlockCreateAccountBtn.click();
+  }
+
+  async clickDiscoverTradingBlockTryDemoBtn() {
+    await this.getDiscoverTradingBlockTryDemoBtn.click();    
   }
 
 }
