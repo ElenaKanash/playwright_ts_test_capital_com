@@ -4,7 +4,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  #workflow_dispatch:
+
 jobs:
   test:
     timeout-minutes: 60
@@ -46,7 +46,11 @@ jobs:
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
-          keep_reports: 15
+          keep_reports: 10
+
+      - name: Clean up old reports
+        run: |
+          rm -rf allure-history/*
 
       - name: Deploy allure report to Github Pages
         if: always()
@@ -55,4 +59,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
+
+
 
