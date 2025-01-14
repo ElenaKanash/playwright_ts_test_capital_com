@@ -1,4 +1,0 @@
-selected trading instrument: Nickel
-selected trading instrument: Natural Gas
-selected trading instrument: 5714
-selected trading instrument: SUNW

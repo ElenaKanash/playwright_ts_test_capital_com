@@ -1,4 +1,0 @@
-selected trading instrument: 4452
-selected trading instrument: DJT
-selected trading instrument: 7974
-selected trading instrument: SVL

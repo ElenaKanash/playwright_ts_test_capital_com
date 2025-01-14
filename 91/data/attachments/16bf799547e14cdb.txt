@@ -1,4 +1,0 @@
-selected trading instrument: NVR
-selected trading instrument: Silver
-selected trading instrument: HK50
-selected trading instrument: SUNW
