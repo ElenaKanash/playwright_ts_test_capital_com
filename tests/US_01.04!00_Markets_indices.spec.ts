@@ -174,4 +174,54 @@ test.describe(`US_01.04!00 | Markets > Menu item [Indices], ${license} license, 
     });
   });
 
+  test.describe('TC_01.04!00_105 | Markets > Menu item [Indices] > Click random trading instruments on the Widget “Trading instrument”', () => {
+
+    test('TC_01.04!00_105_UnReg | Markets > Menu item [Indices] > Click random trading instruments on the Widget “Trading instrument”', async ({ page }) => {
+      const header = new Header(page);      
+      const tableTradingInstruments = new TableTradingInstruments(page);;
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsIndicesMenuItem();
+      
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
+    });
+
+    test.skip('TC_01.04!00_105_UnAuth | Markets > Menu item [Indices] > Click random trading instruments on the Widget “Trading instrument”"', async ({ page, unAutorizedUserRole }) => {
+      const header = new Header(page);      
+      const tableTradingInstruments = new TableTradingInstruments(page);;
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsIndicesMenuItem();
+      
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
+    });
+
+    test.skip('TC_01.04!00_105_Auth | Markets > Menu item [Indices] > Click random trading instruments on the Widget “Trading instrument”', async ({ page, autorizedUserRole }) => {
+      const header = new Header(page);      
+      const tableTradingInstruments = new TableTradingInstruments(page);;
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsIndicesMenuItem();
+      
+      await tableTradingInstruments.clickRandomInstrumentInTheSortedTable();
+    });
+  });
+
+  test.describe('TC_01.04!00_199_All Roles', () => {
+    test.beforeEach(async ({ page }) => {
+      const header = new Header(page);
+
+      await header.hoverMarketsMenu();
+      await header.clickMarketsIndicesMenuItem();
+    });
+
+    test('TC_01.04!00_199 | Markets > Menu item [Indices] > Collecting links from widget “Trading instrument” ', async ({
+      page,
+    }) => {
+      const tableTradingInstruments = new TableTradingInstruments(page);
+
+      await tableTradingInstruments.saveAllTableInstrumentLinksToFile(page, 'a', 'links.txt', 'Forex');
+    });
+  });
+
 });
