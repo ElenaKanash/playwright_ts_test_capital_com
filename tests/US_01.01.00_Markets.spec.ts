@@ -14,7 +14,7 @@ test.describe(`US_01.01!00 | Markets > Menu section [Markets] , ${license} licen
 
     await homePage.openMainPageFCA();    
     await homePage.clickAcceptAllCookiesBtn();
-    await homePage.clickWelcomeBanner();
+    //await homePage.clickWelcomeBanner();
 
   });
 

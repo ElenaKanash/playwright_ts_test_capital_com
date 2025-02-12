@@ -15,7 +15,7 @@ test.describe(`US_01.03!00 | Markets > Menu item [Forex], ${license} license, ${
 
     await homePage.openMainPageFCA();    
     await homePage.clickAcceptAllCookiesBtn();
-    await homePage.clickWelcomeBanner();
+    //await homePage.clickWelcomeBanner();
   });
 
   test.describe('TC_01.03!00_101 | Markets > Menu item [Forex] > Click button [Create account] in the block "Forex trading"', () => {

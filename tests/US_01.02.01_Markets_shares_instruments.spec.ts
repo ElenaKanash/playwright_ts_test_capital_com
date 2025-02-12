@@ -15,7 +15,7 @@ test.describe(`US_01.02!01 | Menu [Markets] > Menu item [Shares] > Page of "Shar
 
     await homePage.openMainPageFCA();    
     await homePage.clickAcceptAllCookiesBtn(); 
-    await homePage.clickWelcomeBanner();   
+    //await homePage.clickWelcomeBanner();   
   });
 
   test.describe('US_01.02!01_UnReg Role', () => {
