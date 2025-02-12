@@ -14,7 +14,7 @@ test.describe(`US_01.03!01 | Menu [Markets] > Menu item [Forex] > Page of "Share
 
     await homePage.openMainPageFCA();
     await homePage.clickAcceptAllCookiesBtn();
-    await homePage.clickWelcomeBanner();
+    //await homePage.clickWelcomeBanner();
 
   });
 

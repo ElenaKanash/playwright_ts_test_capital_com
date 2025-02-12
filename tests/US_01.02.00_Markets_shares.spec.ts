@@ -20,7 +20,7 @@ test.describe(`US_01.02!00 | Menu [Markets] > Menu item [Shares], ${license} lic
 
     await homePage.openMainPageFCA();    
     await homePage.clickAcceptAllCookiesBtn();
-    await homePage.clickWelcomeBanner();
+    //await homePage.clickWelcomeBanner();
   });
 
   test.describe('US_01.02!00_UnReg Role', () => {
